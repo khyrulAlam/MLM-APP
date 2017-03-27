@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="Khyryl Alam Anik">
+        <link rel="shortcut icon" href="<?php echo base_url() ?>assets/img/favicon.png">
 
         <title>Secret Software</title>
 

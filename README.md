@@ -22,13 +22,13 @@ This a Multilavel PIN Genarate Application.
 * 10 Level
 * Every Level Open when previous level Completed like, One completed then two open.
 * PIN Genarate 
-	> Level One - 2
-	> Level Two - 4
-	> Level Three - 8
-	> Level Four - 16
-	> Level Five - 32
-	> Level Six - 64
-	> Level Seven - 128
-	> Level Eight - 256
-	> Level Nine - 512
-	> Level Ten - 1024
+* Level One - 2
+* Level Two - 4
+* Level Three - 8
+* Level Four - 16
+* Level Five - 32
+* Level Six - 64
+* Level Seven - 128
+* Level Eight - 256
+* Level Nine - 512
+* Level Ten - 1024

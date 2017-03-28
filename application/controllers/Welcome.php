@@ -3,6 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
+	// public function __construct() {
+ //        parent::__construct();
+
+ //        $user_id = $this->session->userdata('u_id');
+
+ //        if ($user_id != NULL) {
+ //            redirect('Panel', 'refresh');
+ //        }
+ //    }
+
+
 	//Log-in Page
 	public function index()
 	{
@@ -38,17 +49,28 @@ class Welcome extends CI_Controller {
 
     	 if ($this->form_validation->run() == FALSE)
                 {
-                	
+                	$mdata = array();
+		            $mdata['login_failed'] = "Please Enter Valid Email id And Password.";
+		            $this->session->set_userdata($mdata);
                      redirect('Welcome');
                 }
                 else
                 {
-                        
-			    	$name = $this->input->post('user_email');
-			    	$password = $this->input->post('user_pass');
 
-			    	echo $name . ' '. $password;
-			    	exit();
+			    	$user_email = $this->input->post('user_email');
+			        $user_pass = $this->input->post('user_pass');
+			        $user_info = $this->W_Model->login_check($user_email, $user_pass);
+                     if($user_info == FALSE){
+                     	$mdata = array();
+			            $mdata['login_failed'] = "Your enter email id and Password not found.<br/> Please Enter Valid Email id And Password.";
+			            $this->session->set_userdata($mdata);
+			            redirect('Welcome');
+                     }else{
+                     	$user_id = array();
+			            $user_id['u_id'] = $user_info->u_id;
+			            $this->session->set_userdata($user_id);
+			            redirect('Panel');
+                     }
                 }
     }
 

@@ -2354,4 +2354,16 @@ label {
 
 
 
-//custom style 
+/* custom style */
+
+.version h3{
+    background: #F44336;
+    position: absolute;
+    color: #FFF;
+    padding: 2px 70px;
+    margin: 0px;
+    transform: rotate(-45deg);
+    top: 36px;
+    left: -50px;
+    text-align: center;
+}

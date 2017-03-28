@@ -3,7 +3,7 @@
 
         <div id="showtime"></div>
 
-        <form class="form-login" action="<?php echo base_url()?>Welcome/login" method="post">
+        <form class="form-login" action="<?php echo base_url()?>login" method="post">
             <h2 class="form-login-heading">Log in now</h2>
             <p style="color:red;padding: 15px 20px; margin: 0">
                 <?php 
@@ -14,10 +14,13 @@
                 }
                 ?>
             </p>
+
+            
+            
             <div class="login-wrap">
-                <input type="text" class="form-control" placeholder="Email ID" name="user_email">
+                <input type="text" class="form-control" placeholder="Email ID" name="user_email" required="">
                 <br>
-                <input type="password" class="form-control" placeholder="Password" name="user_pass">
+                <input type="password" class="form-control" placeholder="Password" name="user_pass" required="">
                 <br/>
                 <button class="btn btn-theme btn-block" href="" type="submit"><i class="fa fa-lock"></i> LOG IN</button>
                 <hr>

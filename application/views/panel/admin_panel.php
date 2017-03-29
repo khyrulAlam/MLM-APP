@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="Khyryl Alam Anik">
-        <meta name="keyword" content="">
+        <link rel="shortcut icon" href="<?php echo base_url() ?>assets/img/favicon.png">
 
         <title>User Dashboard</title>
 
@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="top-menu">
                     <ul class="nav pull-right top-menu">
                         <li><a class="logout" href="<?php echo base_url() ?>">Change Password</a></li>
-                        <li><a class="logout" href="<?php echo base_url() ?>UserPanel/logout">Logout</a></li>
+                        <li><a class="logout" href="<?php echo base_url() ?>S_Panel/logout_for_super">Logout</a></li>
                     </ul>
                 </div>
             </header>

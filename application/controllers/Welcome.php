@@ -3,15 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-	// public function __construct() {
- //        parent::__construct();
+	public function __construct() {
+        parent::__construct();
 
- //        $user_id = $this->session->userdata('u_id');
+        $u_id = $this->session->userdata('u_id');
 
- //        if ($user_id != NULL) {
- //            redirect('Panel', 'refresh');
- //        }
- //    }
+        if ($u_id != NULL) {
+            redirect('S_panel', 'refresh');
+        }
+    }
 
 
 	//Log-in Page
@@ -47,31 +47,39 @@ class Welcome extends CI_Controller {
 		$this->form_validation->set_rules('user_email', 'Email', 'required');
     	$this->form_validation->set_rules('user_pass', 'Password', 'trim|required|min_length[8]|alpha_numeric|callback_password_check');
 
-    	 if ($this->form_validation->run() == FALSE)
-                {
-                	$mdata = array();
-		            $mdata['login_failed'] = "Please Enter Valid Email id And Password.";
-		            $this->session->set_userdata($mdata);
-                     redirect('Welcome');
-                }
-                else
-                {
+    	if ($this->form_validation->run() == FALSE)
+        {
+        	$mdata = array();
+            $mdata['login_failed'] = "Please Enter Valid Email id And Password.";
+            $this->session->set_userdata($mdata);
+             redirect('Welcome');
+        }
+        else
+        {
+	    	$user_email = $this->input->post('user_email');
+	        $user_pass = $this->input->post('user_pass');
+	        $user_info = $this->W_Model->login_check($user_email, $user_pass);
+             if($user_info == FALSE){
+             	$mdata = array();
+	            $mdata['login_failed'] = "Your enter email id and Password not found.<br/> Please Enter Valid Email id And Password.";
+	            $this->session->set_userdata($mdata);
+	            redirect('Welcome');
+             }else{
+             	$user_id = array();
+	            $user_id['u_id'] = $user_info->u_id;
+	            $this->session->set_userdata($user_id);
+	            if($user_info->u_access == 1){
+	            	redirect('S_Panel');
+	            }else{
+	            	redirect('Panel');
+	            }
+             }
+	    }
+    }
 
-			    	$user_email = $this->input->post('user_email');
-			        $user_pass = $this->input->post('user_pass');
-			        $user_info = $this->W_Model->login_check($user_email, $user_pass);
-                     if($user_info == FALSE){
-                     	$mdata = array();
-			            $mdata['login_failed'] = "Your enter email id and Password not found.<br/> Please Enter Valid Email id And Password.";
-			            $this->session->set_userdata($mdata);
-			            redirect('Welcome');
-                     }else{
-                     	$user_id = array();
-			            $user_id['u_id'] = $user_info->u_id;
-			            $this->session->set_userdata($user_id);
-			            redirect('Panel');
-                     }
-                }
+
+    public function createNewAccount(){
+    	
     }
 
 }

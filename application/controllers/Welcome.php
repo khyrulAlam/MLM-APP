@@ -25,13 +25,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('signup/login',$data);
 	}
 
-	//Sign-Up Page
-	public function newAccount() {
-        $data = array();
-        $data['master'] = $this->load->view('signup/signup-form', '', true);
-        $this->load->view('signup/login', $data);
-    }
-
 // Password Check Function
     public function password_check($str)
 	{
@@ -78,8 +71,59 @@ class Welcome extends CI_Controller {
     }
 
 
+	//Sign-Up Page
+	public function newAccount() {
+        $data = array();
+        $data['master'] = $this->load->view('signup/signup-form', '', true);
+        $this->load->view('signup/login', $data);
+    }
+
+
+    public function level_one_check($level_one_pin=NULL){
+    	if ($level_one_pin == NULL) {
+            echo 'Please Enter Your Screct PIN Code';
+            return;
+        } else {
+            $result = $this->C_Model->level_onepin_check_info($level_one_pin);
+            if ($result) {
+                echo '';
+            } else {
+                echo 'Your input PIN not correct ! Please Enter a valid pin code';
+            }
+        }
+    }
+
+
     public function createNewAccount(){
-    	
+    	$level_one_pin = $this->input->post('level_one_pin');
+    	$check = $this->C_Model->level_onepin_check_info($level_one_pin);
+        if($check == NULL){
+        	$data=array();
+        	$data['pin_mess'] = "Your input PIN not correct ! Please Enter a valid pin code";
+        	$this->session->set_userdata($data);
+        	redirect('Welcome/newAccount');
+        } else {
+	    	$data = array();
+	    	$data['u_name']= $this->input->post('u_name');
+	    	$data['u_father_name']= $this->input->post('u_father_name');
+	    	$data['u_email']= $this->input->post('u_email');
+	    	$data['u_nid']= $this->input->post('u_nid');
+	    	$data['u_birth']= $this->input->post('u_birth');
+	    	$data['u_mobile']= $this->input->post('u_mobile');
+	    	$data['u_gender']= $this->input->post('u_gender');
+	    	$data['u_address']= $this->input->post('u_address');
+	    	$data['u_password']= md5($this->input->post('u_password'));
+	    	$data['u_img']= $this->input->post('u_img');
+	    	$data['level_one_pin']= $this->input->post('level_one_pin');
+	    	$data['senior_id']= $this->session->userdata('senior_id');
+	    	$data['senior_name']= $this->session->userdata('senior_name');
+	    	$data['u_entry_date']= $this->input->post('u_entry_date');
+
+	    	echo '<pre>';
+	    	print_r($data);
+	    	exit();
+    	}
+
     }
 
 }

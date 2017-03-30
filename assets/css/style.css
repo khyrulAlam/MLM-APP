@@ -216,14 +216,13 @@ hr {
 ul.top-menu > li > .logout {
     color: #ffffff;
     font-size: 12px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border: 1px solid #68dff0 !important;
+    border: 1px solid #424a5d !important;
     padding: 5px 15px;
     margin-right: 15px;
-    background: #68dff0;
+    background: #424a5d;
     margin-top: 15px;
     font-weight: 600;
+    border-radius: 0px;
 }
 
 
@@ -2328,7 +2327,7 @@ label {
 
 /*footer*/
 .site-footer {
-    background: #68dff0;
+    background: #3c4456;
     color: #fff;
     padding: 10px 0;
 }
@@ -2358,7 +2357,7 @@ label {
 
 .version h3{
     background: #F44336;
-    position: absolute;
+    position: fixed;
     color: #FFF;
     padding: 2px 70px;
     margin: 0px;
@@ -2366,4 +2365,5 @@ label {
     top: 36px;
     left: -50px;
     text-align: center;
+    z-index: 333333;
 }

@@ -31,6 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </head>
 
     <body>
+        <div class="version">
+            <h3>beta</h3>
+        </div>
 
         <section id="container" >
 

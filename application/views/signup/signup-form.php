@@ -14,9 +14,9 @@
         xmlhttp = new XMLHttpRequest();
     }
     
-    function makerequest(scr_pin_lo, objID) {
+    function makerequest(level_one_pin, objID) {
 
-        serverPage = '<?php echo base_url() ?>Welcome/level_one_scr_pin_check/' + scr_pin_lo;
+        serverPage = '<?php echo base_url() ?>Welcome/level_one_check/' + level_one_pin;
         xmlhttp.open("GET", serverPage);
         xmlhttp.onreadystatechange = function () {
 
@@ -58,30 +58,39 @@
                     }
                     ?>
                 </h5>
-                <input type="text" class="form-control" placeholder="Full Name*" name="full_name" required="">
+                <input type="text" class="form-control" placeholder="Full Name*" name="u_name" required="">
                 <br>
-                <input type="text" class="form-control" placeholder="Father Name" name="fath_name" required="">
+                <input type="text" class="form-control" placeholder="Father Name" name="u_father_name" required="">
                 <br/>
-                <input type="email" class="form-control" placeholder="Email*" name="user_email" required="">
+                <input type="email" class="form-control" placeholder="Email*" name="u_email" required="">
                 <br/>
-                <input type="text" class="form-control" placeholder="National ID No*" name="n_id" required="">
+                <input type="text" class="form-control" placeholder="National ID No*" name="u_nid" required="">
                 <br/>
-                <input type="date" class="form-control" placeholder="Date OF Birth*" name="date_of_birth" required="">
+                <input type="date" class="form-control" placeholder="Date OF Birth*" name="u_birth" required="">
                 <br/>
-                <input type="text" class="form-control" placeholder="Mobile*" name="user_mobile" required="">
+                <input type="text" class="form-control" placeholder="Mobile*" name="u_mobile" required="">
                 <br/>
-                <input type="text" class="form-control" placeholder="Gender*" name="user_gen" required="">
+                <input type="text" class="form-control" placeholder="Gender*" name="u_gender" required="">
                 <br/>
-                <textarea class="form-control" placeholder="Address" name="user_adds" required=""></textarea>
+                <textarea class="form-control" placeholder="Address" name="u_address" required=""></textarea>
                 <br/>
-                <input type="password" class="form-control" placeholder="Password*" name="user_pass" required="">
+                <input type="password" class="form-control" placeholder="Password*" name="u_password" required="">
                 <br/>
-                <input type="text" class="form-control" placeholder="Pin Code*" required="" name="scr_pin_lo" onblur="makerequest(this.value, 'result')">
+                <input type="text" class="form-control" placeholder="Pin Code*" required="" name="level_one_pin" onblur="makerequest(this.value, 'result')">
                 <span id="result" style="color:red; padding: 20px 10px !important"></span>
+                <span style="color:#F00; padding: 20px 10px !important">
+                    <?php 
+                        $error=$this->session->userdata('pin_mess');
+                        if($error){
+                            echo $error;
+                            $this->session->unset_userdata('pin_mess');
+                        }
+                    ?>
+                </span>
                 <br/>
-                <input type="file" class="form-control" placeholder="image*" name="user_img">
+                <input type="file" class="form-control" placeholder="image*" name="u_img">
                 <br/>
-                <input type="hidden" name="signup_date" value="<?php echo date('Y-m-d')?>">
+                <input type="hidden" name="u_entry_date" value="<?php echo date('Y-m-d')?>">
                 <br/>
 
                 <button class="btn btn-theme btn-block" id="dis-btn" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>

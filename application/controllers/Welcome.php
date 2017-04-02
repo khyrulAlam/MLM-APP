@@ -93,37 +93,46 @@ class Welcome extends CI_Controller {
         }
     }
 
-
+//New Account Create Controller
     public function createNewAccount(){
     	$level_one_pin = $this->input->post('level_one_pin');
     	$check = $this->C_Model->level_onepin_check_info($level_one_pin);
-        if($check == NULL){
+    	$sdata = array();
+    	$sdata['senior_id']= $check->owner_id;
+    	$sdata['senior_name']= $check->owner_name;
+        $this->session->set_userdata($sdata);
+        if($check){
+        	$this->load->library('form_validation');
+			$this->form_validation->set_rules('u_email', 'Email', 'required');
+    		$this->form_validation->set_rules('u_password', 'Password', 'trim|required|min_length[8]|alpha_numeric|callback_password_check');
+    		if($this->form_validation->run() == FALSE){
+    			$mdata = array();
+	            $mdata['emailpass'] = "*Your Password must be 8 characters and 1 lower case letter [a-z] and 1 upper case letter [A-Z] and 1 numeric character [0-9]";
+	            $this->session->set_userdata($mdata);
+	             redirect('Welcome/newAccount');
+    		}else{
+				$leveOnePin = $this->input->post('level_one_pin');
+				$uName = $this->input->post('u_name');
+				// echo $uName.' '.$leveOnePin;
+				// exit();
+				$this->W_Model->usedLevelOnePin($leveOnePin,$uName);
+    			$success=$this->W_Model->createNewAccountInfo();
+    			redirect('Welcome/successful');
+	    	}
+        	
+        } else {
         	$data=array();
-        	$data['pin_mess'] = "Your input PIN not correct ! Please Enter a valid pin code";
+        	$data['pin_mess'] = "Your input PIN not correct !! Please Enter a valid pin code";
         	$this->session->set_userdata($data);
         	redirect('Welcome/newAccount');
-        } else {
-	    	$data = array();
-	    	$data['u_name']= $this->input->post('u_name');
-	    	$data['u_father_name']= $this->input->post('u_father_name');
-	    	$data['u_email']= $this->input->post('u_email');
-	    	$data['u_nid']= $this->input->post('u_nid');
-	    	$data['u_birth']= $this->input->post('u_birth');
-	    	$data['u_mobile']= $this->input->post('u_mobile');
-	    	$data['u_gender']= $this->input->post('u_gender');
-	    	$data['u_address']= $this->input->post('u_address');
-	    	$data['u_password']= md5($this->input->post('u_password'));
-	    	$data['u_img']= $this->input->post('u_img');
-	    	$data['level_one_pin']= $this->input->post('level_one_pin');
-	    	$data['senior_id']= $this->session->userdata('senior_id');
-	    	$data['senior_name']= $this->session->userdata('senior_name');
-	    	$data['u_entry_date']= $this->input->post('u_entry_date');
-
-	    	echo '<pre>';
-	    	print_r($data);
-	    	exit();
     	}
-
     }
+
+    public function successful() {
+        $data = array();
+        $data['master'] = $this->load->view('signup/success', '', true);
+        $this->load->view('signup/login', $data);
+    }
+
 
 }

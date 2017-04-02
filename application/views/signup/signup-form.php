@@ -49,33 +49,55 @@
 
             <h2 class="form-login-heading">sign in now</h2>
             <div class="login-wrap">
-                <h5 style="color:red">
-                    <?php
-                    $img_error = $this->session->userdata('img_error');
-                    if ($img_error) {
+            <!-- Error message for image -->
+                <?php
+                $img_error = $this->session->userdata('img_error');
+                if ($img_error) { ?>
+                    <h5 style="color:red">
+                     <?php
                         echo $img_error;
                         $this->session->unset_userdata('img_error');
-                    }
-                    ?>
-                </h5>
+                      ?>
+                    </h5>
+                <?php }?>
+            <!--END Error message for image -->
+
                 <input type="text" class="form-control" placeholder="Full Name*" name="u_name" required="">
                 <br>
                 <input type="text" class="form-control" placeholder="Father Name" name="u_father_name" required="">
                 <br/>
                 <input type="email" class="form-control" placeholder="Email*" name="u_email" required="">
                 <br/>
-                <input type="text" class="form-control" placeholder="National ID No*" name="u_nid" required="">
+                <input type="number" class="form-control" placeholder="National ID No*" name="u_nid" required="">
                 <br/>
                 <input type="date" class="form-control" placeholder="Date OF Birth*" name="u_birth" required="">
                 <br/>
-                <input type="text" class="form-control" placeholder="Mobile*" name="u_mobile" required="">
+                <input type="number" class="form-control" placeholder="Mobile*" name="u_mobile" required="">
                 <br/>
                 <input type="text" class="form-control" placeholder="Gender*" name="u_gender" required="">
                 <br/>
                 <textarea class="form-control" placeholder="Address" name="u_address" required=""></textarea>
                 <br/>
                 <input type="password" class="form-control" placeholder="Password*" name="u_password" required="">
-                <br/>
+                <!-- Error message for Email and Password -->
+                <?php 
+                    $emailpassword = $this->session->userdata('emailpass');
+                    if($emailpassword){
+                ?>
+                <h5 style="color:red">
+                <?php 
+                    echo $emailpassword; 
+                    $this->session->unset_userdata('emailpass');
+                ?>
+                </h5>
+                <?php } else{?>
+            <!-- Error message for Email and Password -->
+                <p style="margin: 0px;color:#008000;font-size: 12px;">
+                    * 1 lower case letter [a-z] and 1 upper case letter [A-Z] and 1 numeric character [0-9] and must be 8 characters
+                </p>
+                <?php }?>
+                <?php ?>
+                <br>
                 <input type="text" class="form-control" placeholder="Pin Code*" required="" name="level_one_pin" onblur="makerequest(this.value, 'result')">
                 <span id="result" style="color:red; padding: 20px 10px !important"></span>
                 <span style="color:#F00; padding: 20px 10px !important">

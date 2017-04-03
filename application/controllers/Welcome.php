@@ -7,9 +7,14 @@ class Welcome extends CI_Controller {
         parent::__construct();
 
         $u_id = $this->session->userdata('u_id');
+        $u_access = $this->session->userdata('u_access');
 
         if ($u_id != NULL) {
-            redirect('S_panel', 'refresh');
+        	if($u_access == 1){
+            	redirect('S_panel', 'refresh');
+        	}else{
+        		redirect('Panel', 'refresh');
+        	}
         }
     }
 
@@ -60,6 +65,7 @@ class Welcome extends CI_Controller {
              }else{
              	$user_id = array();
 	            $user_id['u_id'] = $user_info->u_id;
+	            $user_id['u_access'] = $user_info->u_access;
 	            $this->session->set_userdata($user_id);
 	            if($user_info->u_access == 1){
 	            	redirect('S_Panel');

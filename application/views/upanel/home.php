@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="Khyryl Alam Anik">
-        <link rel="shortcut icon" href="<?php echo base_url() ?>assets/img/favicon.png">
+        <meta name="keyword" content="">
 
         <title>User Dashboard</title>
 
@@ -31,9 +31,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </head>
 
     <body>
-        <div class="version">
-            <h3>beta</h3>
-        </div>
 
         <section id="container" >
 
@@ -43,13 +40,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
                 </div>
                 <!--logo start-->
-                <a href="" class="logo"><b>MENU</b></a>
+                <a href="<?php echo base_url()?>Panel" class="logo"><b>MENU</b></a>
                 <!--logo end-->
 
                 <div class="top-menu">
                     <ul class="nav pull-right top-menu">
+                        <li><a class="logout" href="<?php echo base_url() ?>">Edit Profile</a></li>
                         <li><a class="logout" href="<?php echo base_url() ?>">Change Password</a></li>
-                        <li><a class="logout" href="<?php echo base_url() ?>S_Panel/logout_for_super">Logout</a></li>
+                        <li><a class="logout" href="<?php echo base_url() ?>Panel/logout">Logout</a></li>
                     </ul>
                 </div>
             </header>
@@ -65,26 +63,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <ul class="sidebar-menu" >
 
                         <li>
-                            <a class="active" href="<?php echo base_url()?>Sell">
+                            <a class="active" href="<?php echo base_url() ?>Panel">
                                 <i class="fa fa-desktop"></i>
-                                <span>Selling PIN</span>
+                                <span>Profile</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url() ?>UserPanel/applyForPin" >
+                            <a href="<?php echo base_url() ?>Panel/applyForPin" >
                                 <i class="fa fa-tasks"></i>
-                                <span>Create PIN</span>
+                                <span>Apply For Level</span>
                             </a>
                         </li>
-                        <!-- <li class="">
-                            <a href="">
+                        <li class="">
+                            <a href="<?php echo base_url() ?>Panel/sellingPin">
                                 <i class="fa fa-th"></i>
                                 <span>My Selling PIN</span>
                             </a>
-                        </li> -->
+                        </li>
                         <li class="">
-                            <a href="<?php echo base_url() ?>UserPanel/userTree" >
+                            <a href="<?php echo base_url() ?>Panel/userTree" >
                                 <i class=" fa fa-bar-chart-o"></i>
                                 <span> User Tree</span>
                             </a>
@@ -101,14 +99,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             *********************************************************************************************************************************************************** -->
             <!--main content start-->
 
-            <?php echo $master ?>
+            <?php echo $master; ?>
 
 
             <!--main content end-->
             <!--footer start-->
             <footer class="site-footer">
                 <div class="text-center">
-                    @2016 All Right Reserved.
+                    @2017 All Right Reserved.
                 </div>
             </footer>
             <!--footer end-->
@@ -118,8 +116,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="<?php echo base_url() ?>assets/js/jquery.js"></script>
         <script src="<?php echo base_url() ?>assets/js/jquery-1.8.3.min.js"></script>
         <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
-
-
         <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
         <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 

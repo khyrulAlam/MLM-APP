@@ -56,11 +56,19 @@ class W_Model extends CI_Model {
     	$data['u_entry_date']= $this->input->post('u_entry_date');
     	$this->db->insert('userinfo',$data);
     }
+//USER PIN USED INFO INSERT
     public function usedLevelOnePin($leveOnePin,$uName){
     	$this->db->set('u_value',1);
     	$this->db->set('u_name',$uName);
         $this->db->where('level_one_pin',$leveOnePin);
         $this->db->update('level_one');
     }
-
+//ALL USER INFO FOR USER TREE
+    public function all_user_info(){
+        $this->db->select('*');
+        $this->db->from('userinfo');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
 }

@@ -18,16 +18,16 @@ class S_Panel extends CI_Controller {
         $user_id = $this->session->userdata('u_id');
         $data = array();
         $data['user'] = $this->P_Model->user_info($user_id);
-        $data['master'] = $this->load->view('panel/welcome', $data, true);
-	    $this->load->view('panel/admin_panel', $data);
+        $data['master'] = $this->load->view('spanel/welcome', $data, true);
+	    $this->load->view('spanel/admin_panel', $data);
     }
 
     public function A_Sell(){
     	$user_id = $this->session->userdata('u_id');
         $data = array();
         //$data['user'] = $this->U_Model->user_info($user_id);
-        $data['master'] = $this->load->view('panel/a_sellingpin', $data, true);
-        $this->load->view('panel/admin_panel', $data);
+        $data['master'] = $this->load->view('spanel/a_sellingpin', $data, true);
+        $this->load->view('spanel/admin_panel', $data);
     }
 
 

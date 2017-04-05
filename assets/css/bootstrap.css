@@ -5002,7 +5002,7 @@ a.list-group-item-danger.active:focus {
 }
 .panel-body {
   padding: 15px;
-  min-height: 75px;
+  min-height: 100px;
 }
 .panel-body p{
     font-size: 14px;

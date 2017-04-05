@@ -2350,11 +2350,6 @@ label {
 .site-min-height {
     min-height: 900px;
 }
-
-
-
-/* custom style */
-
 .version h3{
     background: #F44336;
     position: fixed;
@@ -2367,3 +2362,8 @@ label {
     text-align: center;
     z-index: 333333;
 }
+
+
+
+/* custom style */
+

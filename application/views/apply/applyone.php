@@ -14,7 +14,7 @@
     }
     function secretpin(scrpin, objID) {
 
-        serverPage = '<?php echo base_url() ?>UserPanel/level_one_pin_check/' + scrpin;
+        serverPage = '<?php echo base_url() ?>AP_Panel/level_one_pin_check/' + scrpin;
         xmlhttp.open("GET", serverPage);
         xmlhttp.onreadystatechange = function () {
 
@@ -41,15 +41,18 @@
 <section id="main-content">
     <section class="wrapper">
         <div class="row">
-			<div class="text-center">
-				<h1>APPLY FOR LEVEL ONE PIN</h1>
-				<hr>
-				<form action="<?php echo base_url() ?>UserPanel/level_one_random" method="post">
-	                <input type="hidden" value="<?php echo $user->u_id ?>" name="user_id">
-	                <input type="text" placeholder="PIN NUMBER" required="" class="apply-input" name="scrpin" onblur="secretpin(this.value, 'result')">
-	                <span id="result" style="color:red; "></span>
-	                <button type="submit" class="apply-submit disabled" id="dis-one">APPLY</button>
-            	</form>
+        	<h1 class="text-center">APPLY FOR LEVEL ONE PIN</h1>
+			<hr>
+			<div class="col-md-6 col-md-offset-3">
+				<div class="apply-level">
+					<form action="<?php echo base_url() ?>AP_Panel/level_one_random" method="post">
+		                <input type="hidden" value="<?php echo $user->u_id ?>" name="owner_id">
+		                <input type="hidden" value="<?php echo $user->u_name ?>" name="owner_name">
+		                <input type="text" placeholder="PIN NUMBER" required="" class="apply-input" name="scrpin" onblur="secretpin(this.value, 'result')">
+		                <span id="result" style="color:red; "></span>
+		                <button type="submit" class="apply-submit disabled" id="dis-one">APPLY</button>
+	            	</form>
+				</div>
 			</div>
 		</div>
 	</section>

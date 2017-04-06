@@ -66,8 +66,8 @@
                         foreach ($level_two as $v_level_two) {
                             ?>
                             <tr>
-                                <th><?php echo $i++ ?></th>
-                                <th><?php echo $v_level_two->level_one_pin?></th>
+                                <th><?php echo $i2++ ?></th>
+                                <th><?php echo $v_level_two->level_two_pin?></th>
                                 <?php 
                                 if($v_level_two->u_value==0){
                                 ?>
@@ -104,12 +104,12 @@
                     </thead>
                     <tbody>
                         <?php
-                        $i2=1;
+                        $i3=1;
                         foreach ($level_th as $v_level_th) {
                             ?>
                             <tr>
-                                <th><?php echo $i++ ?></th>
-                                <th><?php echo $v_level_th->level_one_pin?></th>
+                                <th><?php echo $i3++ ?></th>
+                                <th><?php echo $v_level_th->level_three_pin?></th>
                                 <?php 
                                 if($v_level_th->u_value==0){
                                 ?>
@@ -146,12 +146,12 @@
                     </thead>
                     <tbody>
                         <?php
-                        $i2=1;
+                        $i4=1;
                         foreach ($level_four as $v_level_four) {
                             ?>
                             <tr>
-                                <th><?php echo $i++ ?></th>
-                                <th><?php echo $v_level_four->level_one_pin?></th>
+                                <th><?php echo $i4++ ?></th>
+                                <th><?php echo $v_level_four->level_four_pin?></th>
                                 <?php 
                                 if($v_level_four->u_value==0){
                                 ?>
@@ -172,7 +172,7 @@
                 </table>
             </div>
         <!-- LEVEL FIVE -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <?php
                     $level_five = $this->P_Model->user_level_five_selling_pin($u_id);
                 ?>
@@ -188,12 +188,12 @@
                     </thead>
                     <tbody>
                         <?php
-                        $i2=1;
+                        $i5=1;
                         foreach ($level_five as $v_level_five) {
                             ?>
                             <tr>
-                                <th><?php echo $i++ ?></th>
-                                <th><?php echo $v_level_five->level_one_pin?></th>
+                                <th><?php echo $i5++ ?></th>
+                                <th><?php echo $v_level_five->level_five_pin?></th>
                                 <?php 
                                 if($v_level_five->u_value==0){
                                 ?>
@@ -214,7 +214,7 @@
                 </table>
             </div>
         <!-- LEVEL SIX -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <?php
                     $level_six = $this->P_Model->user_level_six_selling_pin($u_id);
                 ?>
@@ -230,12 +230,12 @@
                     </thead>
                     <tbody>
                         <?php
-                        $i2=1;
+                        $i6=1;
                         foreach ($level_six as $v_level_six) {
                             ?>
                             <tr>
-                                <th><?php echo $i++ ?></th>
-                                <th><?php echo $v_level_six->level_one_pin?></th>
+                                <th><?php echo $i6++ ?></th>
+                                <th><?php echo $v_level_six->level_six_pin?></th>
                                 <?php 
                                 if($v_level_six->u_value==0){
                                 ?>
@@ -256,7 +256,7 @@
                 </table>
             </div>
         <!-- LEVEL SEVEN -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <?php
                     $level_seven = $this->P_Model->user_level_seven_selling_pin($u_id);
                 ?>
@@ -272,12 +272,12 @@
                     </thead>
                     <tbody>
                         <?php
-                        $i2=1;
+                        $i7=1;
                         foreach ($level_seven as $v_level_seven) {
                             ?>
                             <tr>
-                                <th><?php echo $i++ ?></th>
-                                <th><?php echo $v_level_seven->level_one_pin?></th>
+                                <th><?php echo $i7++ ?></th>
+                                <th><?php echo $v_level_seven->level_seven_pin?></th>
                                 <?php 
                                 if($v_level_seven->u_value==0){
                                 ?>
@@ -298,7 +298,7 @@
                 </table>
             </div>
         <!-- LEVEL EIGHT -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <?php
                     $level_eight = $this->P_Model->user_level_eight_selling_pin($u_id);
                 ?>
@@ -314,12 +314,12 @@
                     </thead>
                     <tbody>
                         <?php
-                        $i2=1;
+                        $i8=1;
                         foreach ($level_eight as $v_level_eight) {
                             ?>
                             <tr>
-                                <th><?php echo $i++ ?></th>
-                                <th><?php echo $v_level_eight->level_one_pin?></th>
+                                <th><?php echo $i8++ ?></th>
+                                <th><?php echo $v_level_eight->level_eight_pin?></th>
                                 <?php 
                                 if($v_level_eight->u_value==0){
                                 ?>
@@ -340,7 +340,7 @@
                 </table>
             </div>
         <!-- LEVEL NINE -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <?php
                     $level_nine = $this->P_Model->user_level_nine_selling_pin($u_id);
                 ?>
@@ -356,12 +356,12 @@
                     </thead>
                     <tbody>
                         <?php
-                        $i2=1;
+                        $i9=1;
                         foreach ($level_nine as $v_level_nine) {
                             ?>
                             <tr>
-                                <th><?php echo $i++ ?></th>
-                                <th><?php echo $v_level_nine->level_one_pin?></th>
+                                <th><?php echo $i9++ ?></th>
+                                <th><?php echo $v_level_nine->level_nine_pin?></th>
                                 <?php 
                                 if($v_level_nine->u_value==0){
                                 ?>
@@ -382,7 +382,7 @@
                 </table>
             </div>
         <!-- LEVEL TEN -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <?php
                     $level_ten = $this->P_Model->user_level_ten_selling_pin($u_id);
                 ?>
@@ -398,12 +398,12 @@
                     </thead>
                     <tbody>
                         <?php
-                        $i2=1;
+                        $i10=1;
                         foreach ($level_ten as $v_level_ten) {
                             ?>
                             <tr>
-                                <th><?php echo $i++ ?></th>
-                                <th><?php echo $v_level_ten->level_one_pin?></th>
+                                <th><?php echo $i10++ ?></th>
+                                <th><?php echo $v_level_ten->level_ten_pin?></th>
                                 <?php 
                                 if($v_level_ten->u_value==0){
                                 ?>

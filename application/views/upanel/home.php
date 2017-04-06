@@ -31,6 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </head>
 
     <body>
+        <div class="version">
+            <h3>beta</h3>
+        </div>
 
         <section id="container" >
 
@@ -63,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <ul class="sidebar-menu" >
 
                         <li>
-                            <a class="active" href="<?php echo base_url() ?>Panel">
+                            <a href="<?php echo base_url() ?>Panel">
                                 <i class="fa fa-desktop"></i>
                                 <span>Profile</span>
                             </a>

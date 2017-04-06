@@ -65,7 +65,8 @@ class Welcome extends CI_Controller {
              }else{
              	$user_id = array();
 	            $user_id['u_id'] = $user_info->u_id;
-	            $user_id['u_access'] = $user_info->u_access;
+                $user_id['u_access'] = $user_info->u_access;
+	            $user_id['u_name'] = $user_info->u_name;
 	            $this->session->set_userdata($user_id);
 	            if($user_info->u_access == 1){
 	            	redirect('S_Panel');

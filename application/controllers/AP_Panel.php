@@ -402,7 +402,7 @@ class AP_Panel extends CI_Controller {
             echo 'Please Enter Your Screct PIN Code';
         } else {
             $l_one = $this->AP_Model->level_nine_info($scrpin);
-            if ($l_one) {
+            if ($l_one->u_value ==0 || $l_one->u_value2 == 0) {
                 echo '';
             } else {
                 echo 'Your input PIN Not correct ! Please Enter a valid pin code';
@@ -411,16 +411,22 @@ class AP_Panel extends CI_Controller {
     }  
     public function level_nine_random() {
         $user = $this->input->post('scrpin');
-
+        $step = $this->AP_Model->step_check_levelnine($user);
         if ($user == null) {
             echo 'Please Enter PIN';
         } else {
-            $data = array();
-            $data['owner_id'] = $this->input->post('owner_id');
-            $data['owner_name'] = $this->input->post('owner_name');
-            $data['scrpin'] = $this->input->post('scrpin');
-            $data['master'] = $this->load->view('apply/random-generat9', $data, true);
-            $this->load->view('upanel/home', $data);
+
+        	if($step->u_value ==0 || $step->u_value2 == 0){
+        		$data = array();
+	            $data['owner_id'] = $this->input->post('owner_id');
+	            $data['owner_name'] = $this->input->post('owner_name');
+	            $data['scrpin'] = $this->input->post('scrpin');
+	            $data['master'] = $this->load->view('apply/random-generat9', $data, true);
+	            $this->load->view('upanel/home', $data);
+        	}else{
+        		echo "Step Nine Compeleted";
+        	}
+            
         }
     }
     public function level_nine_random_pin() {
@@ -428,14 +434,52 @@ class AP_Panel extends CI_Controller {
         $user_id = $this->session->userdata('u_id');
         $user_name =$this->session->userdata('u_name');
         if ($per_key) {
-            $this->AP_Model->user_level_nine($user_id);
-            $this->AP_Model->permission_level_nine($per_key,$user_name);
-            $this->AP_Model->create_random_pin_nine();
-            redirect('Panel/sellingPin');
+        	$user = $per_key;
+        	$step = $this->AP_Model->step_check_levelnine($user);
+        	if($step->u_value == 0){
+	            $this->AP_Model->permission_level_nine($per_key,$user_name);
+	            $this->AP_Model->create_random_pin_nine();
+	            redirect('Panel/sellingPin');
+        	}else if($step->u_value2 == 0){
+        		$this->AP_Model->user_level_nine($user_id);
+	            $this->AP_Model->permission_level_nine2($per_key);
+	            $this->AP_Model->create_random_pin_nine();
+	            redirect('Panel/sellingPin');
+        	}else{
+        		echo "Step Nine Compeleted";
+        	}
         } else {
             echo 'Please Check Your PIN';
         }
     }
+    // public function text(){
+    // 	$per_key = $this->input->post('permission_key');
+    //     $user_id = $this->session->userdata('u_id');
+    //     $user_name =$this->session->userdata('u_name');
+    //     if($per_key){
+    //     	$user = $per_key;
+    //     	$step = $this->AP_Model->step_check_levelTen($user);
+    //     	if($step->u_value == 0){
+    //         	$this->AP_Model->permission_level_ten($per_key,$user_name);
+    //         	$this->AP_Model->create_random_pin_ten();
+    //         redirect('Panel/sellingPin');
+    //     	}else if($step->u_value2 == 0){
+				// $this->AP_Model->permission_level_ten2($per_key);
+    //         	$this->AP_Model->create_random_pin_ten();
+    //     	}else if($step->u_value3 == 0){
+    //     		$this->AP_Model->permission_level_ten3($per_key);
+    //         	$this->AP_Model->create_random_pin_ten();
+    //     	}else if($step->u_value4 == 0){
+    //     		$this->AP_Model->user_level_ten($user_id);
+    //         	$this->AP_Model->permission_level_ten4($per_key);
+    //         	$this->AP_Model->create_random_pin_ten();
+    //     	}else{
+    //     		echo "Level Compeleted";
+    //     	}
+    //     }else{
+    //     	echo 'Please Check Your PIN';
+    //     }
+    // }
 //APPLY FOR LEVEL ten PAGE
     public function apply_ten_pin() {
         $user_id = $this->session->userdata('u_id');
@@ -449,37 +493,62 @@ class AP_Panel extends CI_Controller {
             echo 'Please Enter Your Screct PIN Code';
         } else {
             $l_one = $this->AP_Model->level_ten_info($scrpin);
-            if ($l_one) {
+            if ($l_one->u_value ==0 || $l_one->u_value2 == 0 || $l_one->u_value3 == 0 || $l_one->u_value4 == 0) {
                 echo '';
             } else {
                 echo 'Your input PIN Not correct ! Please Enter a valid pin code';
             }
         }
-    }  
+    }
+
     public function level_ten_random() {
         $user = $this->input->post('scrpin');
+        $step = $this->AP_Model->step_check_levelTen($user);
         if ($user == null) {
             echo 'Please Enter PIN';
-        } else {
+        } else{
+        	if($step->u_value ==0 || $step->u_value2 ==0 || $step->u_value3 == 0 || $step->u_value4 ==0){
             $data = array();
             $data['owner_id'] = $this->input->post('owner_id');
             $data['owner_name'] = $this->input->post('owner_name');
             $data['scrpin'] = $this->input->post('scrpin');
             $data['master'] = $this->load->view('apply/random-generat10', $data, true);
             $this->load->view('upanel/home', $data);
+        	}else{
+        		echo "Step Ten Compeleted";
+        	}
         }
     }
     public function level_ten_random_pin() {
         $per_key = $this->input->post('permission_key');
         $user_id = $this->session->userdata('u_id');
         $user_name =$this->session->userdata('u_name');
-        if ($per_key) {
-            $this->AP_Model->user_level_ten($user_id);
-            $this->AP_Model->permission_level_ten($per_key,$user_name);
-            $this->AP_Model->create_random_pin_ten();
-            redirect('Panel/sellingPin');
-        } else {
-            echo 'Please Check Your PIN';
+        if($per_key){
+        	$user = $per_key;
+        	$step = $this->AP_Model->step_check_levelTen($user);
+        	if($step->u_value == 0){
+            	$this->AP_Model->permission_level_ten($per_key,$user_name);
+            	$this->AP_Model->create_random_pin_ten();
+            	redirect('Panel/sellingPin');
+        	}else if($step->u_value2 == 0){
+				$this->AP_Model->permission_level_ten2($per_key);
+            	$this->AP_Model->create_random_pin_ten();
+            	redirect('Panel/sellingPin');
+        	}else if($step->u_value3 == 0){
+        		$this->AP_Model->permission_level_ten3($per_key);
+            	$this->AP_Model->create_random_pin_ten();
+            	redirect('Panel/sellingPin');
+        	}else if($step->u_value4 == 0){
+        		$this->AP_Model->user_level_ten($user_id);
+            	$this->AP_Model->permission_level_ten4($per_key);
+            	$this->AP_Model->create_random_pin_ten();
+            	redirect('Panel/sellingPin');
+        	}else{
+        		echo "Level Ten Compeleted";
+        	}
+        }else{
+        	echo 'Please Check Your PIN';
         }
     }
+
 }

@@ -30,7 +30,7 @@
                         <?php
                         $characters = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
                         $charactersLength = strlen($characters);
-                        for ($i = 0; $i < 1024; $i++) {
+                        for ($i = 0; $i < 256; $i++) {
                             ?>
 
                             <input type="text" value="<?php echo('L1M' . rand(0,100) . 'M' . date("d") . date("m") . date("Y") . $owner_id.$characters[rand(0, $charactersLength -1)].rand(1,9)); ?>" readonly="" name="screct_pin[]">

@@ -271,7 +271,14 @@ class AP_Model extends CI_Model {
         $this->db->select('*');
         $this->db->from('level_nine');
         $this->db->where('level_nine_pin', $scrpin);
-        $this->db->where('u_value', 0);
+        $query = $this->db->get();
+        $result = $query->row();
+        return $result;
+    }
+    public function step_check_levelnine($user){
+    	$this->db->select('*');
+        $this->db->from('level_nine');
+        $this->db->where('level_nine_pin', $user);
         $query = $this->db->get();
         $result = $query->row();
         return $result;
@@ -284,6 +291,11 @@ class AP_Model extends CI_Model {
     public function permission_level_nine($per_key,$user_name){
         $this->db->set('u_value', 1);
         $this->db->set('u_name', $user_name);
+        $this->db->where('level_nine_pin', $per_key);
+        $this->db->update('level_nine');
+    }
+    public function permission_level_nine2($per_key){
+    	$this->db->set('u_value2', 1);
         $this->db->where('level_nine_pin', $per_key);
         $this->db->update('level_nine');
     }
@@ -304,7 +316,15 @@ class AP_Model extends CI_Model {
         $this->db->select('*');
         $this->db->from('level_ten');
         $this->db->where('level_ten_pin', $scrpin);
-        $this->db->where('u_value', 0);
+        //$this->db->where('u_value', 0);
+        $query = $this->db->get();
+        $result = $query->row();
+        return $result;
+    }
+    public function step_check_levelTen($user){
+    	$this->db->select('*');
+        $this->db->from('level_ten');
+        $this->db->where('level_ten_pin', $user);
         $query = $this->db->get();
         $result = $query->row();
         return $result;
@@ -317,6 +337,21 @@ class AP_Model extends CI_Model {
     public function permission_level_ten($per_key,$user_name){
         $this->db->set('u_value', 1);
         $this->db->set('u_name', $user_name);
+        $this->db->where('level_ten_pin', $per_key);
+        $this->db->update('level_ten');
+    }
+    public function permission_level_ten2($per_key){
+    	$this->db->set('u_value2', 1);
+        $this->db->where('level_ten_pin', $per_key);
+        $this->db->update('level_ten');
+    }
+    public function permission_level_ten3($per_key){
+    	$this->db->set('u_value3', 1);
+        $this->db->where('level_ten_pin', $per_key);
+        $this->db->update('level_ten');
+    }
+    public function permission_level_ten4($per_key){
+    	$this->db->set('u_value4', 1);
         $this->db->where('level_ten_pin', $per_key);
         $this->db->update('level_ten');
     }

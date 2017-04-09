@@ -49,8 +49,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <div class="top-menu">
                     <ul class="nav pull-right top-menu">
-                        <li><a class="logout" href="<?php echo base_url() ?>">Edit Profile</a></li>
-                        <li><a class="logout" href="<?php echo base_url() ?>">Change Password</a></li>
+                        <!-- <li><a class="logout" href="<?php echo base_url() ?>">Edit Profile</a></li>
+                        <li><a class="logout" href="<?php echo base_url() ?>">Change Password</a></li> -->
                         <li><a class="logout" href="<?php echo base_url() ?>Panel/logout">Logout</a></li>
                     </ul>
                 </div>
@@ -72,13 +72,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <span>Profile</span>
                             </a>
                         </li>
-
+                        <?php 
+                        $acc = $this->session->userdata('u_access');
+                        if($acc == 0){ ?>
                         <li>
                             <a href="<?php echo base_url() ?>Panel/applyForPin" >
                                 <i class="fa fa-tasks"></i>
                                 <span>Apply For Level</span>
                             </a>
                         </li>
+                        <?php }?>
+                        <?php  if($acc == 1){ ?>
+                        <li>
+                            <a href="<?php echo base_url() ?>S_Panel/genarate_pin" >
+                                <i class="fa fa-tasks"></i>
+                                <span>Genarate PIN</span>
+                            </a>
+                        </li>
+                        <?php }?>
                         <li class="">
                             <a href="<?php echo base_url() ?>Panel/sellingPin">
                                 <i class="fa fa-th"></i>

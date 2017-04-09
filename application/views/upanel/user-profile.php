@@ -27,85 +27,89 @@
                              </h5>
                             
                             <br>
-                            <div class="level-button">
-                                <?php
-                                if ($user->u_level >= 1) {
-                                    ?>
-                                    <button> 1st <span class="text-uppercase">Level</span></button>
-                                <?php } else { ?>
-                                    <button style="background: #F44336"> 1nd <span class="text-uppercase">Level</span></button>
-                                <?php } ?>
-                                <?php
-                                if ($user->u_level >= 2) {
-                                    ?>
-                                    <button> 2nd <span class="text-uppercase">Level</span></button>
-                                <?php } else { ?>
-                                    <button style="background: #F44336"> 2nd <span class="text-uppercase">Level</span></button>
-                                <?php } ?>
-                                <?php
-                                if ($user->u_level >= 3) {
-                                    ?>
-                                    <button> 3rd <span class="text-uppercase">Level</span></button>
-                                <?php } else { ?>
-                                    <button style="background: #F44336"> 3rd <span class="text-uppercase">Level</span></button>
-                                <?php } ?>
-                                <?php
-                                if ($user->u_level >= 4) {
-                                    ?>
-                                    <button> 4th <span class="text-uppercase">Level</span></button>
-                                <?php } else { ?>
-                                    <button style="background: #F44336"> 4th <span class="text-uppercase">Level</span></button>
-                                <?php } ?>
+                            <?php 
+                                $access = $this->session->userdata('u_access');
+                                if($access == 0){
+                            ?>
+                                <div class="level-button">
+                                    <?php
+                                    if ($user->u_level >= 1) {
+                                        ?>
+                                        <button> 1st <span class="text-uppercase">Level</span></button>
+                                    <?php } else { ?>
+                                        <button style="background: #F44336"> 1nd <span class="text-uppercase">Level</span></button>
+                                    <?php } ?>
+                                    <?php
+                                    if ($user->u_level >= 2) {
+                                        ?>
+                                        <button> 2nd <span class="text-uppercase">Level</span></button>
+                                    <?php } else { ?>
+                                        <button style="background: #F44336"> 2nd <span class="text-uppercase">Level</span></button>
+                                    <?php } ?>
+                                    <?php
+                                    if ($user->u_level >= 3) {
+                                        ?>
+                                        <button> 3rd <span class="text-uppercase">Level</span></button>
+                                    <?php } else { ?>
+                                        <button style="background: #F44336"> 3rd <span class="text-uppercase">Level</span></button>
+                                    <?php } ?>
+                                    <?php
+                                    if ($user->u_level >= 4) {
+                                        ?>
+                                        <button> 4th <span class="text-uppercase">Level</span></button>
+                                    <?php } else { ?>
+                                        <button style="background: #F44336"> 4th <span class="text-uppercase">Level</span></button>
+                                    <?php } ?>
 
-                                <br>
-                                <div class="clearfix"></div>
-                                <?php
-                                if ($user->u_level >= 5) {
-                                    ?>
-                                    <button> 5th <span class="text-uppercase">Level</span></button>
-                                <?php } else { ?>
-                                    <button style="background: #F44336"> 5th <span class="text-uppercase">Level</span></button>
-                                <?php } ?>
-                                <?php
-                                if ($user->u_level >= 6) {
-                                    ?>
-                                    <button> 6th <span class="text-uppercase">Level</span></button>
-                                <?php } else { ?>
-                                    <button style="background: #F44336"> 6th <span class="text-uppercase">Level</span></button>
-                                <?php } ?>
-                                <?php
-                                if ($user->u_level >= 7) {
-                                    ?>
-                                    <button> 7th <span class="text-uppercase">Level</span></button>
-                                <?php } else { ?>
-                                    <button style="background: #F44336"> 7th <span class="text-uppercase">Level</span></button>
-                                <?php } ?>
-                                <?php
-                                if ($user->u_level >= 8) {
-                                    ?>
-                                    <button> 8th <span class="text-uppercase">Level</span></button>
-                                <?php } else { ?>
-                                    <button style="background: #F44336"> 8th <span class="text-uppercase">Level</span></button>
-                                <?php } ?>
+                                    <br>
+                                    <div class="clearfix"></div>
+                                    <?php
+                                    if ($user->u_level >= 5) {
+                                        ?>
+                                        <button> 5th <span class="text-uppercase">Level</span></button>
+                                    <?php } else { ?>
+                                        <button style="background: #F44336"> 5th <span class="text-uppercase">Level</span></button>
+                                    <?php } ?>
+                                    <?php
+                                    if ($user->u_level >= 6) {
+                                        ?>
+                                        <button> 6th <span class="text-uppercase">Level</span></button>
+                                    <?php } else { ?>
+                                        <button style="background: #F44336"> 6th <span class="text-uppercase">Level</span></button>
+                                    <?php } ?>
+                                    <?php
+                                    if ($user->u_level >= 7) {
+                                        ?>
+                                        <button> 7th <span class="text-uppercase">Level</span></button>
+                                    <?php } else { ?>
+                                        <button style="background: #F44336"> 7th <span class="text-uppercase">Level</span></button>
+                                    <?php } ?>
+                                    <?php
+                                    if ($user->u_level >= 8) {
+                                        ?>
+                                        <button> 8th <span class="text-uppercase">Level</span></button>
+                                    <?php } else { ?>
+                                        <button style="background: #F44336"> 8th <span class="text-uppercase">Level</span></button>
+                                    <?php } ?>
 
-                                <br>
-                                <div class="clearfix"></div>
-                                <?php
-                                if ($user->u_level >= 9) {
-                                    ?>
-                                    <button> 9th <span class="text-uppercase">Level</span></button>
-                                <?php } else { ?>
-                                    <button style="background: #F44336"> 9th <span class="text-uppercase">Level</span></button>
-                                <?php } ?>
-                                <?php
-                                if ($user->u_level == 10) {
-                                    ?>
-                                    <button> 10th <span class="text-uppercase">Level</span></button>
-                                <?php } else { ?>
-                                    <button style="background: #F44336"> 10th <span class="text-uppercase">Level</span></button>
-                                <?php } ?>
-                            </div>
-
+                                    <br>
+                                    <div class="clearfix"></div>
+                                    <?php
+                                    if ($user->u_level >= 9) {
+                                        ?>
+                                        <button> 9th <span class="text-uppercase">Level</span></button>
+                                    <?php } else { ?>
+                                        <button style="background: #F44336"> 9th <span class="text-uppercase">Level</span></button>
+                                    <?php } ?>
+                                    <?php
+                                    if ($user->u_level == 10) {
+                                        ?>
+                                        <button> 10th <span class="text-uppercase">Level</span></button>
+                                    <?php } else { ?>
+                                        <button style="background: #F44336"> 10th <span class="text-uppercase">Level</span></button>
+                                    <?php } ?>
+                                </div>
+                            <?php } ?>
 
                         </div>
                     </div><!-- /col-md-4 -->

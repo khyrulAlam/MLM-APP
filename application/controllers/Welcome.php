@@ -5,16 +5,10 @@ class Welcome extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
-
         $u_id = $this->session->userdata('u_id');
         $u_access = $this->session->userdata('u_access');
-
         if ($u_id != NULL) {
-        	if($u_access == 1){
-            	redirect('S_panel', 'refresh');
-        	}else{
-        		redirect('Panel', 'refresh');
-        	}
+        	redirect('Panel', 'refresh');
         }
     }
 
@@ -68,11 +62,7 @@ class Welcome extends CI_Controller {
                 $user_id['u_access'] = $user_info->u_access;
 	            $user_id['u_name'] = $user_info->u_name;
 	            $this->session->set_userdata($user_id);
-	            if($user_info->u_access == 1){
-	            	redirect('S_Panel');
-	            }else{
-	            	redirect('Panel');
-	            }
+	            redirect('Panel');
              }
 	    }
     }

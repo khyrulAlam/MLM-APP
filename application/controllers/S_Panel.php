@@ -4,36 +4,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class S_Panel extends CI_Controller {
 
-    public function __construct() {
-        parent::__construct();
-
-        $u_id = $this->session->userdata('u_id');
-
-        if ($u_id == NULL) {
-            redirect('Welcome', 'refresh');
-        }
-    }
-
-    public function index() {
-        $user_id = $this->session->userdata('u_id');
+    public function genarate_pin(){
         $data = array();
-        $data['user'] = $this->P_Model->user_info($user_id);
-        $data['master'] = $this->load->view('spanel/welcome', $data, true);
-	    $this->load->view('spanel/admin_panel', $data);
+        $data['master'] = $this->load->view('spanel/genarate_page', $data, true);
+        $this->load->view('upanel/home', $data);
     }
-
-    public function A_Sell(){
-    	$user_id = $this->session->userdata('u_id');
+//Level One For Admin
+    public function level_one() {
         $data = array();
-        //$data['user'] = $this->U_Model->user_info($user_id);
-        $data['master'] = $this->load->view('spanel/a_sellingpin', $data, true);
-        $this->load->view('spanel/admin_panel', $data);
+        $data['owner_id']= $this->session->userdata('u_id');
+        $data['owner_name']= $this->session->userdata('u_name');
+        $data['master'] = $this->load->view('spanel/level_one', $data, true);
+        $this->load->view('upanel/home', $data);
     }
-
-
-    public function logout_for_super() {
-        $this->session->unset_userdata('u_id');
-        redirect('Welcome');
+    public function level_one_pin(){
+        $this->S_Model->level_one_pin_info();
+        redirect('Panel/sellingPin');
     }
 
 }

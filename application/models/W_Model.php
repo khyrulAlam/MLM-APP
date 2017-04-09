@@ -28,10 +28,7 @@ class W_Model extends CI_Model {
     	$data['senior_id']= $this->session->userdata('senior_id');
     	$data['senior_name']= $this->session->userdata('senior_name');
     	$data['u_entry_date']= $this->input->post('u_entry_date');
-    	echo '<pre>';
-        print_r($data);
-        exit();
-        //$this->db->insert('userinfo',$data);
+        $this->db->insert('userinfo',$data);
     }
 //USER PIN USED INFO INSERT
     public function usedLevelOnePin($leveOnePin,$uName){

@@ -20,6 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet">
         <link href="<?php echo base_url() ?>assets/css/style-responsive.css" rel="stylesheet">
+        <script src="<?php echo base_url() ?>assets/js/country.js"></script>
 
 
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">

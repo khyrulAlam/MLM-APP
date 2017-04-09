@@ -49,18 +49,6 @@
 
             <h2 class="form-login-heading">sign in now</h2>
             <div class="login-wrap">
-            <!-- Error message for image -->
-                <?php
-                $img_error = $this->session->userdata('img_error');
-                if ($img_error) { ?>
-                    <h5 style="color:red">
-                     <?php
-                        echo $img_error;
-                        $this->session->unset_userdata('img_error');
-                      ?>
-                    </h5>
-                <?php }?>
-            <!--END Error message for image -->
 
                 <input type="text" class="form-control" placeholder="Full Name*" name="u_name" required="">
                 <br>
@@ -78,6 +66,13 @@
                 <br/>
                 <textarea class="form-control" placeholder="Address" name="u_address" required=""></textarea>
                 <br/>
+                <div>
+                <select id="country" name="country" class="form-control"></select>
+                    <script language="javascript">
+                        populateCountries("country");
+                    </script>
+                </div>
+                <br>
                 <input type="password" class="form-control" placeholder="Password*" name="u_password" required="">
                 <!-- Error message for Email and Password -->
                 <?php 
@@ -109,8 +104,6 @@
                         }
                     ?>
                 </span>
-                <br/>
-                <input type="file" class="form-control" placeholder="image*" name="u_img">
                 <br/>
                 <input type="hidden" name="u_entry_date" value="<?php echo date('Y-m-d')?>">
                 <br/>

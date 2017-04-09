@@ -11,7 +11,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <!-- WHITE PANEL - TOP USER -->
                         <div class="user_image">
-                            <img src="<?php echo base_url() . $user->u_img ?>" class="img-responsive">
+                            <!-- <img src="<?php echo base_url()?>" class="img-responsive"> -->
                         </div>
                     </div><!-- /col-md-4 -->
 
@@ -115,6 +115,7 @@
                             <h4> <span>EMAIL:</span> <?php echo $user->u_email ?></h4>
                             <h4> <span>PHONE:</span> <?php echo $user->u_mobile ?></h4>
                             <h4> <span>NATIONAL ID NO:</span> <?php echo $user->u_nid ?></h4>
+                            <h4> <span>ADDRESS:</span> <?php echo $user->u_address ?></h4>
                         </div>
                     </div>
                     
@@ -123,7 +124,7 @@
                             <h4> <span>DATE OF BIRTH:</span> <?php echo $user->u_birth ?></h4>
                             <h4> <span>GENDER:</span> <?php echo $user->u_gender ?></h4>
                             <h4> <span>FATHER NAME:</span> <?php echo $user->u_father_name ?></h4>
-                            <h4> <span>ADDRESS:</span> <?php echo $user->u_address ?></h4>
+                            <h4> <span>COUNTRY:</span> <?php echo $user->u_country ?></h4>
                         </div>
                     </div>
 

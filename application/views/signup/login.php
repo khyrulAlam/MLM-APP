@@ -15,6 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <!-- Bootstrap core CSS -->
         <link href="<?php echo base_url() ?>assets/css/bootstrap.css" rel="stylesheet">
+        <script src="<?php echo base_url() ?>assets/js/country.js"></script>
         <!--external css-->
         <link href="<?php echo base_url() ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
 

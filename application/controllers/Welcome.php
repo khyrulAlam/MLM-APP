@@ -118,13 +118,12 @@ class Welcome extends CI_Controller {
 	            $this->session->set_userdata($mdata);
 	             redirect('Welcome/newAccount');
     		}else{
-				$leveOnePin = $this->input->post('level_one_pin');
-				$uName = $this->input->post('u_name');
-				// echo $uName.' '.$leveOnePin;
-				// exit();
-				$this->W_Model->usedLevelOnePin($leveOnePin,$uName);
-    			$success=$this->W_Model->createNewAccountInfo();
-    			redirect('Welcome/successful');
+    			$this->W_Model->createNewAccountInfo();
+                $leveOnePin = $this->input->post('level_one_pin');
+                $uName = $this->input->post('u_name');
+                $this->W_Model->usedLevelOnePin($leveOnePin,$uName);
+                redirect('Welcome/successful');
+                
 	    	}
         	
         } else {

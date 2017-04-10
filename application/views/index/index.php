@@ -34,10 +34,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Terms & Condition</a></li>
+                <li class="active"><a href="<?php echo base_url()?>">Home</a></li>
+                <li><a href="<?php echo base_url()?>About">About</a></li>
+                <li><a href="<?php echo base_url()?>Terms">Terms & Condition</a></li>
+                <li><a href="<?php echo base_url()?>Contact">Contact</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo base_url()?>log-in"><span class="glyphicon glyphicon-log-in"></span>  Log-in</a></li>

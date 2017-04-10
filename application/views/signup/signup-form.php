@@ -112,9 +112,9 @@
                 <hr>
 
                 <div class="registration">
-                    Go back to log-in page <br/>
+                    Go back to Home page <br/>
                     <a class="" href="<?php echo base_url() ?>">
-                        Login
+                        Home
                     </a>
                 </div>
 

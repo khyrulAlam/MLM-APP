@@ -6,17 +6,8 @@
                 <div class="row mt">
                     <!-- SERVER STATUS PANELS -->
 
-
-
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <!-- WHITE PANEL - TOP USER -->
-                        <div class="user_image">
-                            <!-- <img src="<?php echo base_url()?>" class="img-responsive"> -->
-                        </div>
-                    </div><!-- /col-md-4 -->
-
-                    <div class="col-lg-8 col-md-8 col-sm-8 mb">
-                        <div class="user-info">
+                    <div class="col-lg-12 col-md-12 col-sm-12 mb">
+                        <div class="user-info text-center">
 
                             <h1> <?php echo $user->u_name ?> </h1>
                             <h5> Member Since - 
@@ -114,7 +105,7 @@
                         </div>
                     </div><!-- /col-md-4 -->
 
-                    <div class="col-lg-6 col-md-6 mb">
+                    <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 mb">
                         <div class="account-info">
                             <h4> <span>EMAIL:</span> <?php echo $user->u_email ?></h4>
                             <h4> <span>PHONE:</span> <?php echo $user->u_mobile ?></h4>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2017 at 08:34 PM
+-- Generation Time: Apr 10, 2017 at 05:27 PM
 -- Server version: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -30,17 +30,10 @@ CREATE TABLE IF NOT EXISTS `level_eight` (
   `pe_id` int(13) NOT NULL,
   `level_eight_pin` varchar(100) NOT NULL,
   `owner_id` int(13) NOT NULL,
+  `owner_name` varchar(100) NOT NULL,
   `u_name` varchar(100) NOT NULL,
   `u_value` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `level_eight`
---
-
-INSERT INTO `level_eight` (`pe_id`, `level_eight_pin`, `owner_id`, `u_name`, `u_value`) VALUES
-(1, 'L864M7856V24873X3246', 1, '', 0),
-(2, 'L818M8772V32557X3170', 1, '', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -52,17 +45,10 @@ CREATE TABLE IF NOT EXISTS `level_five` (
   `pfi_id` int(13) NOT NULL,
   `level_five_pin` varchar(100) NOT NULL,
   `owner_id` int(13) NOT NULL,
+  `owner_name` varchar(100) NOT NULL,
   `u_name` varchar(100) NOT NULL,
   `u_value` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `level_five`
---
-
-INSERT INTO `level_five` (`pfi_id`, `level_five_pin`, `owner_id`, `u_name`, `u_value`) VALUES
-(1, 'L549M25474V10899X6864', 1, '', 0),
-(2, 'L577M22826V29467X27832', 1, '', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -74,17 +60,10 @@ CREATE TABLE IF NOT EXISTS `level_four` (
   `pf_id` int(13) NOT NULL,
   `level_four_pin` varchar(100) NOT NULL,
   `owner_id` int(13) NOT NULL,
+  `owner_name` varchar(100) NOT NULL,
   `u_name` varchar(100) NOT NULL,
   `u_value` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `level_four`
---
-
-INSERT INTO `level_four` (`pf_id`, `level_four_pin`, `owner_id`, `u_name`, `u_value`) VALUES
-(1, 'L452M14019V27456X23161', 1, '', 0),
-(2, 'L436M15163V25176X24497', 1, '', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -96,17 +75,11 @@ CREATE TABLE IF NOT EXISTS `level_nine` (
   `pn_id` int(13) NOT NULL,
   `level_nine_pin` varchar(100) NOT NULL,
   `owner_id` int(13) NOT NULL,
+  `owner_name` varchar(100) NOT NULL,
   `u_name` varchar(100) NOT NULL,
-  `u_value` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `level_nine`
---
-
-INSERT INTO `level_nine` (`pn_id`, `level_nine_pin`, `owner_id`, `u_name`, `u_value`) VALUES
-(1, 'L998M13631V3596X21333', 1, '', 0),
-(2, 'L913M26203V32504X20433', 1, '', 0);
+  `u_value` tinyint(4) NOT NULL DEFAULT '0',
+  `u_value2` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -129,8 +102,8 @@ CREATE TABLE IF NOT EXISTS `level_one` (
 --
 
 INSERT INTO `level_one` (`po_id`, `level_one_pin`, `owner_id`, `owner_name`, `u_value`, `u_name`, `r_per`) VALUES
-(1, 'L1912618017MLM179690', 1, 'company', 0, '', 0),
-(2, 'L1912618017MLM179100', 1, 'company', 0, '', 0);
+(1, 'L1M44M100420171G2', 1, 'Company', 0, '', 0),
+(2, 'L1M50M100420171K6', 1, 'Company', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -142,17 +115,10 @@ CREATE TABLE IF NOT EXISTS `level_seven` (
   `ps_id` int(13) NOT NULL,
   `level_seven_pin` varchar(100) NOT NULL,
   `owner_id` int(13) NOT NULL,
+  `owner_name` varchar(100) NOT NULL,
   `u_name` varchar(100) NOT NULL,
   `u_value` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `level_seven`
---
-
-INSERT INTO `level_seven` (`ps_id`, `level_seven_pin`, `owner_id`, `u_name`, `u_value`) VALUES
-(1, 'L797M11401V25742X17583', 1, '', 0),
-(2, 'L751M2117V15258X31947', 1, '', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -164,17 +130,10 @@ CREATE TABLE IF NOT EXISTS `level_six` (
   `psi_id` int(13) NOT NULL,
   `level_six_pin` varchar(100) NOT NULL,
   `owner_id` int(13) NOT NULL,
+  `owner_name` varchar(100) NOT NULL,
   `u_name` varchar(100) NOT NULL,
   `u_value` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `level_six`
---
-
-INSERT INTO `level_six` (`psi_id`, `level_six_pin`, `owner_id`, `u_name`, `u_value`) VALUES
-(1, 'L684M31485V9202X14915', 1, '', 0),
-(2, 'L682M18937V3390X14239', 1, '', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -186,17 +145,13 @@ CREATE TABLE IF NOT EXISTS `level_ten` (
   `pt_id` int(13) NOT NULL,
   `level_ten_pin` varchar(100) NOT NULL,
   `owner_id` int(13) NOT NULL,
+  `owner_name` varchar(100) NOT NULL,
   `u_name` varchar(100) NOT NULL,
-  `u_value` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `level_ten`
---
-
-INSERT INTO `level_ten` (`pt_id`, `level_ten_pin`, `owner_id`, `u_name`, `u_value`) VALUES
-(1, 'L1084M10675V31600X24297', 1, '', 0),
-(2, 'L1010M11835V22872X2737', 1, '', 0);
+  `u_value` tinyint(4) NOT NULL DEFAULT '0',
+  `u_value2` tinyint(1) NOT NULL DEFAULT '0',
+  `u_value3` tinyint(1) NOT NULL DEFAULT '0',
+  `u_value4` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -208,17 +163,10 @@ CREATE TABLE IF NOT EXISTS `level_three` (
   `pth_id` int(13) NOT NULL,
   `level_three_pin` varchar(100) NOT NULL,
   `owner_id` int(13) NOT NULL,
+  `owner_name` varchar(100) NOT NULL,
   `u_name` varchar(100) NOT NULL,
   `u_value` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `level_three`
---
-
-INSERT INTO `level_three` (`pth_id`, `level_three_pin`, `owner_id`, `u_name`, `u_value`) VALUES
-(1, 'L346M9261V19810X32499', 1, '', 0),
-(2, 'L356M22057V23982X5967', 1, '', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -230,17 +178,10 @@ CREATE TABLE IF NOT EXISTS `level_two` (
   `pt_id` int(13) NOT NULL,
   `level_two_pin` varchar(100) NOT NULL,
   `owner_id` int(13) NOT NULL,
+  `owner_name` varchar(100) NOT NULL,
   `u_name` varchar(100) NOT NULL,
   `u_value` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `level_two`
---
-
-INSERT INTO `level_two` (`pt_id`, `level_two_pin`, `owner_id`, `u_name`, `u_value`) VALUES
-(1, 'L2913687417MLM10025789', 1, '', 0),
-(2, 'L2913687417MLM10023507', 1, '', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -255,11 +196,11 @@ CREATE TABLE IF NOT EXISTS `userinfo` (
   `u_email` varchar(256) NOT NULL,
   `u_nid` varchar(35) NOT NULL,
   `u_birth` varchar(15) NOT NULL,
-  `u_moblie` varchar(18) NOT NULL,
+  `u_mobile` varchar(18) NOT NULL,
   `u_gender` varchar(8) NOT NULL,
   `u_address` text NOT NULL,
+  `u_country` varchar(10) NOT NULL,
   `u_password` varchar(32) NOT NULL,
-  `u_img` varchar(100) NOT NULL,
   `level_one_pin` varchar(100) NOT NULL,
   `senior_id` int(13) NOT NULL,
   `senior_name` varchar(100) NOT NULL,
@@ -272,8 +213,8 @@ CREATE TABLE IF NOT EXISTS `userinfo` (
 -- Dumping data for table `userinfo`
 --
 
-INSERT INTO `userinfo` (`u_id`, `u_name`, `u_father_name`, `u_email`, `u_nid`, `u_birth`, `u_moblie`, `u_gender`, `u_address`, `u_password`, `u_img`, `level_one_pin`, `senior_id`, `senior_name`, `u_entry_date`, `u_level`, `u_access`) VALUES
-(1, 'Company', '', 'company@admin.com', '', '', '', '', '', '94409b63b851230faf9a828f1fbe8c95', '', '', 0, 'Company', '0000-00-00 00:00:00', 0, 1);
+INSERT INTO `userinfo` (`u_id`, `u_name`, `u_father_name`, `u_email`, `u_nid`, `u_birth`, `u_mobile`, `u_gender`, `u_address`, `u_country`, `u_password`, `level_one_pin`, `senior_id`, `senior_name`, `u_entry_date`, `u_level`, `u_access`) VALUES
+(1, 'Company ', '', 'company@admin.com', '', '', '', '', '', 'USA', '7607ca33cb7cb69bdb61fdb58ded69c8', '', 0, '', '2017-04-10 21:25:42', 0, 1);
 
 --
 -- Indexes for dumped tables
@@ -353,22 +294,22 @@ ALTER TABLE `userinfo`
 -- AUTO_INCREMENT for table `level_eight`
 --
 ALTER TABLE `level_eight`
-  MODIFY `pe_id` int(13) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `pe_id` int(13) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `level_five`
 --
 ALTER TABLE `level_five`
-  MODIFY `pfi_id` int(13) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `pfi_id` int(13) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `level_four`
 --
 ALTER TABLE `level_four`
-  MODIFY `pf_id` int(13) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `pf_id` int(13) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `level_nine`
 --
 ALTER TABLE `level_nine`
-  MODIFY `pn_id` int(13) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `pn_id` int(13) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `level_one`
 --
@@ -378,27 +319,27 @@ ALTER TABLE `level_one`
 -- AUTO_INCREMENT for table `level_seven`
 --
 ALTER TABLE `level_seven`
-  MODIFY `ps_id` int(13) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `ps_id` int(13) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `level_six`
 --
 ALTER TABLE `level_six`
-  MODIFY `psi_id` int(13) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `psi_id` int(13) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `level_ten`
 --
 ALTER TABLE `level_ten`
-  MODIFY `pt_id` int(13) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `pt_id` int(13) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `level_three`
 --
 ALTER TABLE `level_three`
-  MODIFY `pth_id` int(13) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `pth_id` int(13) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `level_two`
 --
 ALTER TABLE `level_two`
-  MODIFY `pt_id` int(13) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `pt_id` int(13) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `userinfo`
 --

@@ -48,6 +48,6 @@ class Panel extends CI_Controller {
 //LOG-OUT    
     public function logout() {
         $this->session->unset_userdata('u_id');
-        redirect('Welcome');
+        redirect('Website');
     }
 }

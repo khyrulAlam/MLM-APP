@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class C_Model extends CI_Model {
 //Level One pin Check when user create his id - [signup page]
 	public function level_onepin_check_info($level_one_pin){
-	$this->db->select('*');
+	      $this->db->select('*');
         $this->db->from("level_one");
         $this->db->where('level_one_pin',$level_one_pin);
         $this->db->where('u_value',0);
@@ -12,7 +12,15 @@ class C_Model extends CI_Model {
         $result=$query->row();
         return $result;
 	}
-
+//User Name Check 
+  public function user_name_check_info($log_name){
+    $this->db->select('*');
+    $this->db->from("userinfo");
+    $this->db->where('log_name',$log_name);
+    $query=$this->db->get();
+    $result=$query->row();
+    return $result;
+  }
 //Call for level one pin
 
         public function call_for_pin_one($senior_one){

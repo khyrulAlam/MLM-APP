@@ -37,6 +37,29 @@
         }
         xmlhttp.send(null);
     }
+    function makerequest(log_name, objID) {
+
+        serverPage = '<?php echo base_url() ?>Welcome/user_name_check/' + log_name;
+        xmlhttp.open("GET", serverPage);
+        xmlhttp.onreadystatechange = function () {
+
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                document.getElementById(objID).innerHTML = xmlhttp.responseText;
+
+                if (xmlhttp.responseText == "Please Enter Your User Name") {
+                    document.getElementById('dis-btn').disabled = true;
+                }
+                if (xmlhttp.responseText == 'This User Name Already Exists') {
+                    document.getElementById('dis-btn').disabled = true;
+                }
+                if (xmlhttp.responseText == '') {
+                    document.getElementById('dis-btn').disabled = false;
+                }
+            }
+        }
+        xmlhttp.send(null);
+    }
 </script>
 
 
@@ -73,6 +96,9 @@
                     </script>
                 </div>
                 <br>
+                <input type="text" class="form-control" placeholder="User Name" required="" name="log_name" onblur="makerequest(this.value, 'result2')">
+                <span id="result2" style="color:red; padding: 20px 10px !important"></span>
+                <br>
                 <input type="password" class="form-control" placeholder="Password*" name="u_password" required="">
                 <!-- Error message for Email and Password -->
                 <?php 
@@ -93,8 +119,8 @@
                 <?php }?>
                 <?php ?>
                 <br>
-                <input type="file" class="form-control" placeholder="image*" name="u_img" required="">
- -               <br/>
+                <input type="file" class="form-control" placeholder="image*" name="u_img" required=""> 
+                <br/>
                 <input type="text" class="form-control" placeholder="Pin Code*" required="" name="level_one_pin" onblur="makerequest(this.value, 'result')">
                 <span id="result" style="color:red; padding: 20px 10px !important"></span>
                 <span style="color:#F00; padding: 20px 10px !important">

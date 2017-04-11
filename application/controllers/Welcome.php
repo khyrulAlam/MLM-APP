@@ -77,7 +77,7 @@ class Welcome extends CI_Controller {
         $this->load->view('signup/login', $data);
     }
 
-
+//Pin check by ajax
     public function level_one_check($level_one_pin=NULL){
         if ($level_one_pin == NULL) {
             echo 'Please Enter Your Screct PIN Code';
@@ -88,6 +88,20 @@ class Welcome extends CI_Controller {
                 echo '';
             } else {
                 echo 'Your input PIN not correct ! Please Enter a valid pin code';
+            }
+        }
+    }
+//user name check by ajax
+    public function user_name_check($log_name=NULL){
+        if($log_name==Null){
+            echo "Please Enter Your User Name";
+            return;
+        }else{
+            $log_name = $this->C_Model->user_name_check_info($log_name);
+            if($log_name){
+                echo 'This User Name Already Exists';
+            }else{
+                echo '';
             }
         }
     }

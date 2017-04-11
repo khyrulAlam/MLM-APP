@@ -23,7 +23,8 @@ class W_Model extends CI_Model {
     	$data['u_gender']= $this->input->post('u_gender');
         $data['u_address']= $this->input->post('u_address');
     	$data['u_country']= $this->input->post('country');
-    	$data['u_password']= md5($this->input->post('u_password'));
+        $data['u_password']= md5($this->input->post('u_password'));
+    	$data['log_name']= md5($this->input->post('log_name'));
 //image file upload
         $config['upload_path'] = './user-image/';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';

@@ -93,6 +93,8 @@
                 <?php }?>
                 <?php ?>
                 <br>
+                <input type="file" class="form-control" placeholder="image*" name="u_img" required="">
+ -               <br/>
                 <input type="text" class="form-control" placeholder="Pin Code*" required="" name="level_one_pin" onblur="makerequest(this.value, 'result')">
                 <span id="result" style="color:red; padding: 20px 10px !important"></span>
                 <span style="color:#F00; padding: 20px 10px !important">

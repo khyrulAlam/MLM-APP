@@ -8,7 +8,7 @@
 
                     <div class="col-lg-12 col-md-12 col-sm-12 mb">
                         <div class="user-info text-center">
-
+                            <img src="<?php echo base_url() . $user->u_img ?>" alt="">
                             <h1> <?php echo $user->u_name ?> </h1>
                             <h5> Member Since - 
                                 <?php

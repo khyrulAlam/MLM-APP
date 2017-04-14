@@ -3,10 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //Welcome Model - User Signup-Log-in and other
 class W_Model extends CI_Model {
 
-	public function login_check($user_email,$user_pass){
+	public function login_check($log_name,$user_pass){
         $this->db->select('*');
         $this->db->from('userinfo');
-        $this->db->where('u_email',$user_email);
+        $this->db->where('log_name',$log_name);
         $this->db->where('u_password',md5($user_pass));
         $query=$this->db->get();
         $result=$query->row();
@@ -25,25 +25,32 @@ class W_Model extends CI_Model {
     	$data['u_country']= $this->input->post('country');
         $data['u_password']= md5($this->input->post('u_password'));
     	$data['log_name']= md5($this->input->post('log_name'));
-//image file upload
         $config['upload_path'] = './user-image/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['max_size'] = 5120;
-        $this->load->library('upload', $config);
-        $fdata = $this->upload->data();
-        $config['image_library'] = 'gd2';
-        $config['source_image'] = $fdata['full_path'];
-        $config['create_thumb'] = TRUE;
-        $config['maintain_ratio'] = FALSE;
-        $config['width'] = 350;
-        $config['height'] = 300;
-        $this->load->library('image_lib', $config);
-        $this->image_lib->resize();
-        $f_name = substr($fdata['file_name'], 0, -4);
-        $m_img = $f_name . '_thumb' . $fdata['file_ext'];
-        unlink($fdata['full_path']);
-        $data['u_img'] = $config['upload_path'] . $m_img;
-//End image file uplode
+         $config['allowed_types'] = 'gif|jpg|png|jpeg';
+         $config['max_size'] = 5120;
+         $this->load->library('upload', $config);
+         if (!$this->upload->do_upload('u_img')) {
+             $error = $this->upload->display_errors();
+             $sdata = array();
+             $sdata['img_error'] = $error;
+             $this->session->set_userdata($sdata);
+             redirect('Welcome/newAccount');
+         } else {
+             $fdata = $this->upload->data();
+             $config['image_library'] = 'gd2';
+             $config['source_image'] = $fdata['full_path'];
+             $config['create_thumb'] = TRUE;
+             $config['maintain_ratio'] = FALSE;
+             $config['width'] = 350;
+             $config['height'] = 300;
+             $this->load->library('image_lib', $config);
+             $this->image_lib->resize();
+             $f_name = substr($fdata['file_name'], 0, -4);
+             $m_img = $f_name . '_thumb' . $fdata['file_ext'];
+             unlink($fdata['full_path']);
+             $data['u_img'] = $config['upload_path'] . $m_img;
+         }
+         //End image file uplode
     	$data['level_one_pin']= $this->input->post('level_one_pin');
     	$data['senior_id']= $this->session->userdata('senior_id');
     	$data['senior_name']= $this->session->userdata('senior_name');

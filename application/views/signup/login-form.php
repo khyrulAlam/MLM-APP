@@ -18,7 +18,7 @@
             
             
             <div class="login-wrap">
-                <input type="text" class="form-control" placeholder="Email ID" name="user_email" required="">
+                <input type="text" class="form-control" placeholder="User Name" name="log_name" required="">
                 <br>
                 <input type="password" class="form-control" placeholder="Password" name="user_pass" required="">
                 <br/>

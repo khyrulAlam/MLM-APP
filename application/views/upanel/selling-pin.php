@@ -14,6 +14,7 @@
                         <tr>
                             <th>#</th>
                             <th>SECRET PINE</th>
+                            <th>Side</th>
                             <th>STATUS</th>
                             <th>Sold By</th>
                         </tr>
@@ -26,6 +27,7 @@
                             <tr>
                                 <th><?php echo $i++ ?></th>
                                 <th><?php echo $v_level_one->level_one_pin?></th>
+                                <th><?php echo $v_level_one->side?></th>
                                 <?php 
                                 if($v_level_one->u_value==0){
                                 ?>

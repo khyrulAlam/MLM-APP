@@ -36,6 +36,13 @@
                             <input type="text" value="<?php echo('L1M' . rand(0,100) . 'M' . date("d") . date("m") . date("Y") . $owner_id.$characters[rand(0, $charactersLength -1)].rand(1,9)); ?>" readonly="" name="screct_pin[]">
                             <input type="hidden" value="<?php echo $owner_id ?>" readonly="" name="owner_id[]">
                             <input type="hidden" value="<?php echo $owner_name ?>" readonly="" name="owner_name[]">
+                            <?php 
+                            if($i == 0){
+                            ?>
+                            <input type="hidden" value="left" name="side[]">
+                            <?php }else{?>
+                            <input type="hidden" value="right" name="side[]">
+                            <?php }?>
                         <?php } ?>
                         <br>
                         <br>

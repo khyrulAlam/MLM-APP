@@ -31,9 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- **********************************************************************************************************************************************************
                   It's a secret software baby.... don't try to login without account !!!  happy codeing bitch ... :)   
         *********************************************************************************************************************************************************** -->
-        <div class="version">
+        <!-- <div class="version">
             <h3>beta</h3>
-        </div>
+        </div> -->
 
         <?php echo $master; ?>
 

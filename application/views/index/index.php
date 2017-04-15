@@ -6,8 +6,7 @@
         <title>Business Website</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="shortcut icon" href="<?php echo base_url()?>font-assets/img/Dollar-48.png">
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>font-assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo base_url()?>font-assets/css/main.css">
@@ -27,8 +26,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#"><img src="<?php echo base_url()?>font-assets/img/Dollar-48.png
-              "></a>
+              <a class="navbar-brand" href="#"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,10 +37,20 @@
                 <li><a href="<?php echo base_url()?>Terms">Terms & Condition</a></li>
                 <li><a href="<?php echo base_url()?>Contact">Contact</a></li>
               </ul>
+              
+            <?php
+                $u_id=$this->session->userdata('u_id');
+                if($u_id){?>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<?php echo base_url()?>Panel"><span class="glyphicon glyphicon-flag"></span> Panel</a></li>
+                    <li><a href="<?php echo base_url() ?>Panel/logout"><span class="glyphicon glyphicon-log-out"></span> Log-out</a></li>
+                </ul>
+            <?php }else{?>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo base_url()?>log-in"><span class="glyphicon glyphicon-log-in"></span>  Log-in</a></li>
                 <li><a href="<?php echo base_url()?>Signup"><span class="glyphicon glyphicon-new-window"></span>  Sign-Up</a></li>
               </ul>
+            <?php }?>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>

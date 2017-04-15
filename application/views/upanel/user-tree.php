@@ -2,7 +2,7 @@
     <section class="wrapper">
         <div class="row" style="padding: 15px">
             <div class="col-md-12">
-                <table class="table table-bordered table-hover table-striped" id="example">
+                <!-- <table class="table table-bordered table-hover table-striped" id="example">
                     <thead>
                         <tr>
                             <td>#</td>
@@ -58,8 +58,46 @@
                         </tr>
                         <?php }?>
                     </tbody>
-                </table>
+                </table> -->
             </div>
+            <div class="col-md-6">
+                <div class="panel panel-info text-center">
+                    <div class="panel-heading">
+                        <h3>Left Hand</h3>
+                    </div>
+                <?php 
+                $user_id = $this->session->userdata('u_id');
+                $left= $this->W_Model->left_side_info($user_id);
+                if($left){
+                ?>
+                <div class="panel-body">
+                    <h5><span class="text-success">Name:</span> <?php echo $left->u_name?></h5>
+                    <h5>Mobile: <?php echo $left->u_mobile?></h5>
+                    <h5>Level: <?php echo $left->u_level?></h5>
+                </div>
+                <?php }?>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-info text-center">
+                  <div class="panel-heading">
+                      <h3>Right Hand</h3>
+                  </div>
+                <?php 
+                    $user_id = $this->session->userdata('u_id');
+                    $right=$this->W_Model->right_side_info($user_id);
+                    if($right){
+                ?>
+                  <div class="panel-body">
+                    <h5><span class="text-success">Name:</span> <?php echo $right->u_name?></h5>
+                    <h5>Mobile: <?php echo $right->u_mobile?></h5>
+                    <h5>Level: <?php echo $right->u_level?></h5>
+                  </div>
+                <?php }?>
+                </div>
+            </div>
+
+
         </div>
     </section>
 </section>

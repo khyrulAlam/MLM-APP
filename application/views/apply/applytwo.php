@@ -1,40 +1,40 @@
 <script>
-	var xmlhttp = false;
-    try {
-        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-    } catch (e) {
-        try {
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        } catch (E) {
-            xmlhttp = false;
-        }
-    }
-    if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
-        xmlhttp = new XMLHttpRequest();
-    }
-    function secretpin(scrpin, objID) {
+	// var xmlhttp = false;
+ //    try {
+ //        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+ //    } catch (e) {
+ //        try {
+ //            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+ //        } catch (E) {
+ //            xmlhttp = false;
+ //        }
+ //    }
+ //    if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
+ //        xmlhttp = new XMLHttpRequest();
+ //    }
+ //    function secretpin(scrpin, objID) {
 
-        serverPage = '<?php echo base_url() ?>AP_Panel/level_two_pin_check/' + scrpin;
-        xmlhttp.open("GET", serverPage);
-        xmlhttp.onreadystatechange = function () {
+ //        serverPage = '<?php echo base_url() ?>AP_Panel/level_two_pin_check/' + scrpin;
+ //        xmlhttp.open("GET", serverPage);
+ //        xmlhttp.onreadystatechange = function () {
 
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+ //            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-                document.getElementById(objID).innerHTML = xmlhttp.responseText;
+ //                document.getElementById(objID).innerHTML = xmlhttp.responseText;
 
-                if (xmlhttp.responseText == "Please Enter Your Screct PIN Code") {
-                    document.getElementById('dis-one').disabled = true;
-                }
-                if (xmlhttp.responseText == 'Your input PIN Not correct ! Please Enter a valid pin code') {
-                    document.getElementById('dis-one').disabled = true;
-                }
-                if (xmlhttp.responseText == '') {
-                    document.getElementById('dis-one').disabled = false;
-                }
-            }
-        }
-        xmlhttp.send(null);
-    }
+ //                if (xmlhttp.responseText == "Please Enter Your Screct PIN Code") {
+ //                    document.getElementById('dis-one').disabled = true;
+ //                }
+ //                if (xmlhttp.responseText == 'Your input PIN Not correct ! Please Enter a valid pin code') {
+ //                    document.getElementById('dis-one').disabled = true;
+ //                }
+ //                if (xmlhttp.responseText == '') {
+ //                    document.getElementById('dis-one').disabled = false;
+ //                }
+ //            }
+ //        }
+ //        xmlhttp.send(null);
+ //    }
 </script>
 
 
@@ -52,6 +52,12 @@
 		                <span id="result" style="color:red; "></span>
 		                <button type="submit" class="apply-submit disabled" id="dis-one">APPLY</button>
 	            	</form>
+                    <?php 
+                    $error= $this->session->userdata('w_pin');
+                    if($error){
+                    ?>
+                    <h3 class="text-danger"><?php echo $error ; $this->session->unset_userdata('w_pin');?></h3>
+                    <?php }?>
 				</div>
 			</div>
 		</div>

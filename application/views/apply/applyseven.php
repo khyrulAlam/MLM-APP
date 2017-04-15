@@ -52,6 +52,12 @@
 		                <span id="result" style="color:red; "></span>
 		                <button type="submit" class="apply-submit disabled" id="dis-one">APPLY</button>
 	            	</form>
+                    <?php 
+                    $error= $this->session->userdata('w_pin');
+                    if($error){
+                    ?>
+                    <h3 class="text-danger"><?php echo $error ; $this->session->unset_userdata('w_pin');?></h3>
+                    <?php }?>
 				</div>
 			</div>
 		</div>

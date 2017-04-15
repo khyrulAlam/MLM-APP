@@ -26,13 +26,18 @@ class AP_Model extends CI_Model {
 		$screct_pin = $this->input->post('screct_pin');
         $owner_id = $this->input->post('owner_id');
         $owner_name = $this->input->post('owner_name');
+        $side = $this->input->post('side');
         for ($i = 0; $i < count($screct_pin); $i++) {
             $data = array();
             $data['level_one_pin'] = $screct_pin[$i];
             $data['owner_id'] = $owner_id[$i];
             $data['owner_name'] = $owner_name[$i];
+            $data['side']=$side[$i];
             $this->db->insert('level_one', $data);
         }
+        // echo "<pre>";
+        //     print_r($data);
+        //     exit();
 	}
 //LEVEL TWO
 	public function level_two_info($scrpin){

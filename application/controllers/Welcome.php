@@ -121,7 +121,7 @@ class Welcome extends CI_Controller {
         $check = $this->C_Model->level_onepin_check_info($level_one_pin);
         if($level_one_pin==NULL || $log_name==NULL){
             $data = array();
-            $data['gap']= "Please Input User Name and PIN ID Correctly";
+            $data['gap']= "Something Wrong Your User Name Or PIN ID Correctly";
             $this->session->set_userdata($data);
             redirect('Welcome/newAccount');
         }else{
@@ -139,16 +139,14 @@ class Welcome extends CI_Controller {
                     $sdata = array();
                     $sdata['senior_id']= $check->owner_id;
                     $sdata['senior_name']= $check->owner_name;
+                    $sdata['side']= $check->side;
                     $this->session->set_userdata($sdata);
                     $leveOnePin = $this->input->post('level_one_pin');
                     $uName = $this->input->post('u_name');
                     $dbresult = $this->W_Model->createNewAccountInfo();
-                    if($dbresult){
-                        $this->W_Model->usedLevelOnePin($leveOnePin,$uName);
-                        redirect('Welcome/successful');
-                    }else{
-                        redirect('Welcome/newAccount');
-                    }
+                    $this->W_Model->usedLevelOnePin($leveOnePin,$uName);
+                    redirect('Welcome/successful');
+                    
                 }else{
                     $data=array();
                     $data['pin_mess'] = "Your input PIN not correct !!! Please Enter a valid pin code";

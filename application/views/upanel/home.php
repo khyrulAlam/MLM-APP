@@ -32,9 +32,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </head>
 
     <body>
-        <div class="version">
+        <!-- <div class="version">
             <h3>beta</h3>
-        </div>
+        </div> -->
 
         <section id="container" >
 
@@ -51,6 +51,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <ul class="nav pull-right top-menu">
                         <!-- <li><a class="logout" href="<?php echo base_url() ?>">Edit Profile</a></li>
                         <li><a class="logout" href="<?php echo base_url() ?>">Change Password</a></li> -->
+                        <li><a class="logout" href="<?php echo base_url()?>">Home</a></li>
+                        <li><a class="logout" href="<?php echo base_url()?>About">About</a></li>
+                        <li><a class="logout" href="<?php echo base_url()?>Terms">Terms & Condition</a></li>
+                        <li><a class="logout" href="<?php echo base_url()?>Contact">Contact</a></li>
                         <li><a class="logout" href="<?php echo base_url() ?>Panel/logout">Logout</a></li>
                     </ul>
                 </div>

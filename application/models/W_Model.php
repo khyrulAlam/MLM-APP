@@ -24,7 +24,7 @@ class W_Model extends CI_Model {
         $data['u_address']= $this->input->post('u_address');
     	$data['u_country']= $this->input->post('country');
         $data['u_password']= md5($this->input->post('u_password'));
-    	$data['log_name']= md5($this->input->post('log_name'));
+    	$data['log_name']= $this->input->post('log_name');
         $config['upload_path'] = './user-image/';
          $config['allowed_types'] = 'gif|jpg|png|jpeg';
          $config['max_size'] = 5120;
@@ -53,7 +53,8 @@ class W_Model extends CI_Model {
          //End image file uplode
     	$data['level_one_pin']= $this->input->post('level_one_pin');
     	$data['senior_id']= $this->session->userdata('senior_id');
-    	$data['senior_name']= $this->session->userdata('senior_name');
+        $data['senior_name']= $this->session->userdata('senior_name');
+    	$data['side']= $this->session->userdata('side');
     	$data['u_entry_date']= $this->input->post('u_entry_date');
         $this->db->insert('userinfo',$data);
     }
@@ -72,4 +73,24 @@ class W_Model extends CI_Model {
         $result = $query->result();
         return $result;
     }
+//User Tree left side and right side 
+
+    public function left_side_info($user_id){
+        $this->db->select('*');
+        $this->db->from('userinfo');
+        $this->db->where('senior_id',$user_id);
+        $this->db->where('side','left');
+        $query = $this->db->get();
+        $result = $query->row();
+        return $result;
+    }   
+    public function right_side_info($user_id){
+        $this->db->select('*');
+        $this->db->from('userinfo');
+        $this->db->where('senior_id',$user_id);
+        $this->db->where('side','right');
+        $query = $this->db->get();
+        $result = $query->row();
+        return $result;
+    }   
 }

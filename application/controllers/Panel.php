@@ -37,10 +37,10 @@ class Panel extends CI_Controller {
     }
 //USER TREE
     public function userTree(){
-        //$src_One=$this->U_Model->user_info($user_id);
-        //$senior=$src_One->scr_pin_lo;
         $data = array();
-        $data['all_user_info'] =$this->W_Model->all_user_info();
+        //$data['all_user_info'] =$this->W_Model->all_user_info();
+        //$data['left']=$this->W_Model->left_side_info($user_id);
+        //$data['right']=$this->W_Model->right_side_info($user_id);
         $data['master'] = $this->load->view('upanel/user-tree', $data, true);
         $this->load->view('upanel/home', $data);
     }

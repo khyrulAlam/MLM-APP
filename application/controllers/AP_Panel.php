@@ -37,12 +37,22 @@ class AP_Panel extends CI_Controller {
         if ($user == null) {
             echo 'Please Enter PIN';
         } else {
-            $data = array();
-            $data['owner_id'] = $this->input->post('owner_id');
-            $data['owner_name'] = $this->input->post('owner_name');
-            $data['scrpin'] = $this->input->post('scrpin');
-            $data['master'] = $this->load->view('apply/random-generat', $data, true);
-            $this->load->view('upanel/home', $data);
+            $scrpin=$this->input->post('scrpin');
+            $l_one=$this->AP_Model->level_one_info($scrpin);
+            if($l_one){
+                $data = array();
+                $data['owner_id'] = $this->input->post('owner_id');
+                $data['owner_name'] = $this->input->post('owner_name');
+                $data['scrpin'] = $this->input->post('scrpin');
+                $data['master'] = $this->load->view('apply/random-generat', $data, true);
+                $this->load->view('upanel/home', $data);
+            }else{
+                $data=array();
+                $data['w_pin'] = "You Entern Wrong PIN ! Please Check Your PIN";
+                $this->session->set_userdata($data);
+                redirect('AP_Panel/apply_one_pin');
+            }
+            
         }
     }
 //random input in database
@@ -85,12 +95,21 @@ class AP_Panel extends CI_Controller {
         if ($user == null) {
             echo 'Please Enter PIN';
         } else {
-            $data = array();
-            $data['owner_id'] = $this->input->post('owner_id');
-            $data['owner_name'] = $this->input->post('owner_name');
-            $data['scrpin'] = $this->input->post('scrpin');
-            $data['master'] = $this->load->view('apply/random-generat2', $data, true);
-            $this->load->view('upanel/home', $data);
+            $scrpin=$this->input->post('scrpin');
+            $l_one=$this->AP_Model->level_two_info($scrpin);
+            if($l_one){
+                 $data = array();
+                 $data['owner_id'] = $this->input->post('owner_id');
+                 $data['owner_name'] = $this->input->post('owner_name');
+                 $data['scrpin'] = $this->input->post('scrpin');
+                 $data['master'] = $this->load->view('apply/random-generat2', $data, true);
+                 $this->load->view('upanel/home', $data);
+            }else{
+                $data=array();
+                $data['w_pin'] = "You Entern Wrong PIN ! Please Check Your PIN";
+                $this->session->set_userdata($data);
+                redirect('AP_Panel/apply_two_pin');
+            }
         }
     }
     public function level_two_random_pin() {
@@ -133,12 +152,22 @@ class AP_Panel extends CI_Controller {
         if ($user == null) {
             echo 'Please Enter PIN';
         } else {
-            $data = array();
-            $data['owner_id'] = $this->input->post('owner_id');
-            $data['owner_name'] = $this->input->post('owner_name');
-            $data['scrpin'] = $this->input->post('scrpin');
-            $data['master'] = $this->load->view('apply/random-generat3', $data, true);
-            $this->load->view('upanel/home', $data);
+            $scrpin=$this->input->post('scrpin');
+            $l_one=$this->AP_Model->level_three_info($scrpin);
+            if($l_one){
+                $data = array();
+                $data['owner_id'] = $this->input->post('owner_id');
+                $data['owner_name'] = $this->input->post('owner_name');
+                $data['scrpin'] = $this->input->post('scrpin');
+                $data['master'] = $this->load->view('apply/random-generat3', $data, true);
+                $this->load->view('upanel/home', $data);
+            }else{
+                $data=array();
+                $data['w_pin'] = "You Entern Wrong PIN ! Please Check Your PIN";
+                $this->session->set_userdata($data);
+                redirect('AP_Panel/apply_three_pin');
+            }
+            
         }
     }
     public function level_three_random_pin() {
@@ -180,12 +209,21 @@ class AP_Panel extends CI_Controller {
         if ($user == null) {
             echo 'Please Enter PIN';
         } else {
-            $data = array();
-            $data['owner_id'] = $this->input->post('owner_id');
-            $data['owner_name'] = $this->input->post('owner_name');
-            $data['scrpin'] = $this->input->post('scrpin');
-            $data['master'] = $this->load->view('apply/random-generat4', $data, true);
-            $this->load->view('upanel/home', $data);
+            $scrpin=$this->input->post('scrpin');
+            $l_one=$this->AP_Model->level_four_info($scrpin);
+            if($l_one){
+                $data = array();
+                $data['owner_id'] = $this->input->post('owner_id');
+                $data['owner_name'] = $this->input->post('owner_name');
+                $data['scrpin'] = $this->input->post('scrpin');
+                $data['master'] = $this->load->view('apply/random-generat4', $data, true);
+                $this->load->view('upanel/home', $data); 
+            }else{
+                $data=array();
+                $data['w_pin'] = "You Entern Wrong PIN ! Please Check Your PIN";
+                $this->session->set_userdata($data);
+                redirect('AP_Panel/apply_four_pin');
+            }
         }
     }
     public function level_four_random_pin() {
@@ -227,12 +265,22 @@ class AP_Panel extends CI_Controller {
         if ($user == null) {
             echo 'Please Enter PIN';
         } else {
-            $data = array();
-            $data['owner_id'] = $this->input->post('owner_id');
-            $data['owner_name'] = $this->input->post('owner_name');
-            $data['scrpin'] = $this->input->post('scrpin');
-            $data['master'] = $this->load->view('apply/random-generat5', $data, true);
-            $this->load->view('upanel/home', $data);
+            $scrpin=$this->input->post('scrpin');
+            $l_one=$this->AP_Model->level_five_info($scrpin);
+            if($l_one){
+                $data = array();
+                $data['owner_id'] = $this->input->post('owner_id');
+                $data['owner_name'] = $this->input->post('owner_name');
+                $data['scrpin'] = $this->input->post('scrpin');
+                $data['master'] = $this->load->view('apply/random-generat5', $data, true);
+                $this->load->view('upanel/home', $data);
+            }else{
+                $data=array();
+                $data['w_pin'] = "You Entern Wrong PIN ! Please Check Your PIN";
+                $this->session->set_userdata($data);
+                redirect('AP_Panel/apply_five_pin');
+            }
+            
         }
     }
     public function level_five_random_pin() {
@@ -274,12 +322,22 @@ class AP_Panel extends CI_Controller {
         if ($user == null) {
             echo 'Please Enter PIN';
         } else {
-            $data = array();
-            $data['owner_id'] = $this->input->post('owner_id');
-            $data['owner_name'] = $this->input->post('owner_name');
-            $data['scrpin'] = $this->input->post('scrpin');
-            $data['master'] = $this->load->view('apply/random-generat6', $data, true);
-            $this->load->view('upanel/home', $data);
+            $scrpin=$this->input->post('scrpin');
+            $l_one=$this->AP_Model->level_six_info($scrpin);
+            if($l_one){
+                $data = array();
+                $data['owner_id'] = $this->input->post('owner_id');
+                $data['owner_name'] = $this->input->post('owner_name');
+                $data['scrpin'] = $this->input->post('scrpin');
+                $data['master'] = $this->load->view('apply/random-generat6', $data, true);
+                $this->load->view('upanel/home', $data);
+            }else{
+                $data=array();
+                $data['w_pin'] = "You Entern Wrong PIN ! Please Check Your PIN";
+                $this->session->set_userdata($data);
+                redirect('AP_Panel/apply_six_pin');
+            }
+            
         }
     }
     public function level_six_random_pin() {
@@ -321,12 +379,21 @@ class AP_Panel extends CI_Controller {
         if ($user == null) {
             echo 'Please Enter PIN';
         } else {
-            $data = array();
-            $data['owner_id'] = $this->input->post('owner_id');
-            $data['owner_name'] = $this->input->post('owner_name');
-            $data['scrpin'] = $this->input->post('scrpin');
-            $data['master'] = $this->load->view('apply/random-generat7', $data, true);
-            $this->load->view('upanel/home', $data);
+            $scrpin=$this->input->post('scrpin');
+            $l_one=$this->AP_Model->level_seven_info($scrpin);
+            if($l_one){
+                $data = array();
+                $data['owner_id'] = $this->input->post('owner_id');
+                $data['owner_name'] = $this->input->post('owner_name');
+                $data['scrpin'] = $this->input->post('scrpin');
+                $data['master'] = $this->load->view('apply/random-generat7', $data, true);
+                $this->load->view('upanel/home', $data);
+            }else{
+                $data=array();
+                $data['w_pin'] = "You Entern Wrong PIN ! Please Check Your PIN";
+                $this->session->set_userdata($data);
+                redirect('AP_Panel/apply_seven_pin');
+            }
         }
     }
     public function level_seven_random_pin() {
@@ -368,12 +435,22 @@ class AP_Panel extends CI_Controller {
         if ($user == null) {
             echo 'Please Enter PIN';
         } else {
-            $data = array();
-            $data['owner_id'] = $this->input->post('owner_id');
-            $data['owner_name'] = $this->input->post('owner_name');
-            $data['scrpin'] = $this->input->post('scrpin');
-            $data['master'] = $this->load->view('apply/random-generat8', $data, true);
-            $this->load->view('upanel/home', $data);
+            $scrpin=$this->input->post('scrpin');
+            $l_one=$this->AP_Model->level_eight_info($scrpin);
+            if($l_one){
+                $data = array();
+                $data['owner_id'] = $this->input->post('owner_id');
+                $data['owner_name'] = $this->input->post('owner_name');
+                $data['scrpin'] = $this->input->post('scrpin');
+                $data['master'] = $this->load->view('apply/random-generat8', $data, true);
+                $this->load->view('upanel/home', $data);  
+            }else{
+                $data=array();
+                $data['w_pin'] = "You Entern Wrong PIN ! Please Check Your PIN";
+                $this->session->set_userdata($data);
+                redirect('AP_Panel/apply_eight_pin');
+            }
+            
         }
     }
     public function level_eight_random_pin() {
@@ -415,7 +492,6 @@ class AP_Panel extends CI_Controller {
         if ($user == null) {
             echo 'Please Enter PIN';
         } else {
-
         	if($step->u_value ==0 || $step->u_value2 == 0){
         		$data = array();
 	            $data['owner_id'] = $this->input->post('owner_id');
